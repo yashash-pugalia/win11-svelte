@@ -1,0 +1,56 @@
+name: PR Preview
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  PR-Preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: comment - Build in Progress
+        uses: peter-evans/create-or-update-comment@v2
+        id: couc
+        with:
+          body: ⌛ Deploy Preview processing.
+          issue-number: ${{ github.event.pull_request.number }}
+
+      - uses: actions/checkout@v3
+        with:
+          ref: refs/pull/${{ github.event.pull_request.number }}/merge
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+
+      - name: Build
+        run: |
+          npm ci
+          PUBLIC_URL=https://yashash1511.github.io/pr/${{ github.event.pull_request.number }} npm run build
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          destination_dir: ./pr/${{ github.event.pull_request.number }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: comment - Preview ready
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          body: |
+            ✔️ Deploy Preview ready!
+            😎 Browse the preview: https://yashash1511.github.io/pr/${{ github.event.pull_request.number }}/
+          comment-id: ${{ steps.couc.outputs.comment-id }}
+          edit-mode: replace
+
+      - name: comment if failed
+        if: ${{ failure() }}
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          body: |
+            ❌ Deploy Preview failed
+            🔍 Inspect the deploy log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          comment-id: ${{ steps.couc.outputs.comment-id }}
+          edit-mode: replace
