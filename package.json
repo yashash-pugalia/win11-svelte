@@ -12,7 +12,7 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "fluent-svelte": "^1.6.0",
-    "rollup": "^2.75.5",
+    "rollup": "^2.75.6",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-svelte": "^7.1.0",
