@@ -1,0 +1,101 @@
+<script>
+  import { TextBox } from "fluent-svelte";
+  import { fly } from "svelte/transition";
+</script>
+
+<div
+  class="search activeShadow"
+  transition:fly={{ y: 700, duration: 200, opacity: 1 }}
+>
+  <TextBox placeholder="Type here to search" autofocus />
+
+  <div class="searchType">
+    <span>All</span>
+    <span>Apps</span>
+    <span>Documents</span>
+    <span>Web</span>
+    <span>More</span>
+  </div>
+
+  <h4>Top apps</h4>
+  <div class="topAppGrid">
+    <div class="topApp hvrLight">appName</div>
+    <div class="topApp hvrLight">appName</div>
+    <div class="topApp hvrLight">appName</div>
+    <div class="topApp hvrLight">appName</div>
+    <div class="topApp hvrLight">appName</div>
+  </div>
+
+  <h4>Quick searches</h4>
+  <div class="searchTileCont">
+    <div class="searchTile hvrLight">Today in history</div>
+    <div class="searchTile hvrLight">Markets today</div>
+    <div class="searchTile hvrLight">Translate</div>
+    <div class="searchTile hvrLight">Currency converter</div>
+  </div>
+</div>
+
+<style>
+  .search {
+    position: absolute;
+    bottom: 12px;
+    left: calc(50% - 380px);
+    background: rgb(var(--bg4) / 85%);
+    backdrop-filter: blur(1.5rem);
+    width: 760px;
+    height: min(100% - 1.5rem, 720px);
+    padding: 2rem 1.5rem 0;
+    border-radius: 8px;
+  }
+  /* .search.left {
+    left: 12px;
+  } */
+
+  .searchType {
+    margin: 1.5rem 0 2rem;
+  }
+  .searchType span {
+    padding: 0 8px;
+  }
+
+  .topAppGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 8px;
+    padding: 1rem 0 2rem;
+  }
+  .topApp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    background: rgb(255 255 255 / 80%);
+    border-radius: 4px;
+  }
+  .topApp:hover {
+    background: rgb(255 255 255 / 50%);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .topApp {
+      background: rgb(255 255 255 / 6%);
+    }
+    .topApp:hover {
+      background: rgb(255 255 255 / 3%);
+    }
+  }
+
+  .searchTileCont {
+    padding: 1rem 0;
+  }
+
+  .searchTile {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 4px;
+  }
+</style>
