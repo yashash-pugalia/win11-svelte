@@ -2,8 +2,10 @@
   import { battery } from "../../store";
 
   const updateBatteryStatus = (bt) => {
-    $battery.level = Math.round(bt.level * 100);
-    $battery.charging = bt.charging;
+    $battery = Math.round(bt.level * 100);
+    if (bt.charging) {
+      $battery = -$battery;
+    }
   };
 
   if (window.BatteryManager) {
@@ -20,7 +22,7 @@
 
 <span>
   <div class="battery">
-    {#if $battery.charging}
+    {#if $battery < 0}
       <div class="charger">
         <img
           class="icon"
@@ -38,7 +40,7 @@
       width="20"
       alt=""
     />
-    <div class="btFull" style="width: {$battery.level}%">
+    <div class="btFull" style="width: {Math.abs($battery)}%">
       <img
         class="icon"
         src="assets/icon/ui/btFull.svg"
@@ -48,9 +50,7 @@
       />
     </div>
   </div>
-  {#if pct}
-    <div class="pct">{$battery.level}%</div>
-  {/if}
+  {#if pct}<div class="pct">{Math.abs($battery)}%</div>{/if}
 </span>
 
 <style>

@@ -1,9 +1,9 @@
 <script>
-  import { ListItem, TextBox } from "fluent-svelte";
+  import { Button, ListItem, TextBox } from "fluent-svelte";
   import data from "./settingsData.json";
 
   let tab = "System";
-  let navOpen = false; // the nav state
+  let navOpen = false;
 
   const setTab = (a) => {
     tab = a;
@@ -53,7 +53,7 @@
           {#each data[tab] as e}
             <div class={e.type}>
               {#if e.type === "tile" || e.type === "tile square" || e.type === "tile thin-blue"}
-                <span>{e.icon ? e.icon : ""}</span>
+                <span class="settingsIcon">{e.icon ? e.icon : ""}</span>
                 <div>
                   <p>{e.name}</p>
                   <p class="tile_desc">{e.desc ? e.desc : ""}</p>
@@ -97,11 +97,124 @@
                     <p>
                       Windows Update
                       <br />
-                      <span class="column_lower"
-                        >Last checked: {Math.ceil(Math.random() * 12)} hours ago</span
-                      >
+                      <span class="column_lower">
+                        Last checked: {Math.ceil(Math.random() * 12)} hours ago
+                      </span>
                     </p>
                   </div>
+                </div>
+              {:else if e.type === "netTop"}
+                <div>
+                  <img
+                    src="assets/apps/settings/wifi.png"
+                    alt=""
+                    height="100"
+                    width="100"
+                  />
+                  <div>
+                    <h2>WiFi</h2>
+                    <p>Connected, secured</p>
+                  </div>
+                </div>
+                <div class="box">
+                  <span class="settingsIcon"></span>
+                  <div>
+                    <h3>Properties</h3>
+                    <p>Public network 5 Ghz</p>
+                  </div>
+                </div>
+                <div class="box">
+                  <span class="settingsIcon"></span>
+                  <div>
+                    <h3>Data Usage</h3>
+                    <p>{Math.round(Math.random() * 100)}GB, last 30 days</p>
+                  </div>
+                </div>
+              {:else if e.type === "personaliseTop"}
+                <img
+                  class="mainImg"
+                  src="assets/walls/default/img0.jpg"
+                  alt=""
+                  height="200"
+                  width="310.5"
+                />
+                <div>
+                  <h3>Select a theme to apply</h3>
+                  <div class="bgBox">
+                    <img
+                      class="selected"
+                      src="assets/walls/default/img0.jpg"
+                      alt=""
+                      height="75"
+                      width="120"
+                    />
+                    <img
+                      src="assets/walls/dark/img0.jpg"
+                      alt=""
+                      height="75"
+                      width="120"
+                    />
+                    <img
+                      src="assets/walls/ThemeA/img0.jpg"
+                      alt=""
+                      height="75"
+                      width="120"
+                    />
+                    <img
+                      src="assets/walls/ThemeB/img0.jpg"
+                      alt=""
+                      height="75"
+                      width="120"
+                    />
+                    <img
+                      src="assets/walls/ThemeC/img0.jpg"
+                      alt=""
+                      height="75"
+                      width="120"
+                    />
+                    <img
+                      src="assets/walls/ThemeD/img0.jpg"
+                      alt=""
+                      height="75"
+                      width="120"
+                    />
+                  </div>
+                </div>
+              {:else if e.type === "accountsTop"}
+                <img
+                  src="assets/apps/settings/defAccount.webp"
+                  alt=""
+                  height="90"
+                  width="90"
+                />
+                <div>
+                  <p>YASHASH</p>
+                  <p>Local Account</p>
+                  <p>Administrator</p>
+                </div>
+              {:else if e.type === "timeTop"}
+                <h1>
+                  {new Date().toLocaleTimeString("en-US", {
+                    hour: "numeric",
+                    minute: "numeric",
+                    hour12: true,
+                  })}
+                </h1>
+              {:else if e.type === "updateTop"}
+                <div class="left">
+                  <img
+                    src="assets/apps/settings/update.png"
+                    height="90"
+                    width="90"
+                    alt=""
+                  />
+                  <div>
+                    <h2>You're up to date</h2>
+                    <p>Last checked: Today</p>
+                  </div>
+                </div>
+                <div class="right">
+                  <Button variant="accent">Check for updates</Button>
                 </div>
               {:else if e.type === "subHeading" || e.type === "spacer"}
                 {e.name ? e.name : ""}
@@ -128,7 +241,7 @@
     color: rgb(var(--clr));
     padding-left: 300px;
     position: absolute;
-    inset: 10%;
+    inset: 0;
     border-radius: 8px;
     overflow: hidden;
   }
@@ -182,6 +295,17 @@
     font-variation-settings: "wght" 600;
     padding: 14px 24px;
   }
+  main .tilesCont {
+    animation: slideUp 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    height: calc(100% - 64px);
+
+    overflow-y: overlay;
+    padding: 0 24px 44px;
+  }
+
   main .sysTop {
     flex-wrap: wrap;
     gap: 8px;
@@ -232,16 +356,116 @@
     font-size: 13px;
     font-variation-settings: "wght" 400;
   }
-  main .tilesCont {
-    animation: slideUp 0.2s;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    height: calc(100% - 64px);
 
-    overflow-y: overlay;
-    padding: 0 24px 44px;
+  .netTop {
+    width: min(100%, 1000px);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    gap: 1rem;
   }
+  .netTop div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .netTop .box {
+    display: flex;
+    padding: 8px;
+    gap: 10px;
+    align-items: center;
+    border-radius: 4px;
+  }
+  .netTop .box .settingsIcon {
+    margin: 0;
+  }
+  .netTop .box:hover {
+    background: rgb(var(--clr) / 5%);
+  }
+  .netTop h2 {
+    font-size: 18px;
+  }
+  .netTop .box h3 {
+    font-weight: unset;
+    font-variation-settings: "wght" 600;
+    font-size: 14px;
+  }
+  .netTop .box p {
+    font-size: 12px;
+    color: rgb(var(--txt_clr-rgb) / 67%);
+  }
+
+  .personaliseTop {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    gap: 12px;
+  }
+  .personaliseTop .mainImg {
+    border: 8px solid black;
+    border-radius: 1rem;
+    margin-right: 32px;
+  }
+  .personaliseTop div h3 {
+    font-size: 14px;
+    font-weight: unset;
+    font-variation-settings: "wght" 600;
+    padding-bottom: 8px;
+  }
+  .personaliseTop div .bgBox {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .personaliseTop div .bgBox img {
+    width: 120px;
+    border-radius: 4px;
+  }
+  .personaliseTop div .bgBox .selected {
+    box-shadow: 0 0 0 2px rgb(var(--bg1)), 0 0 0 4px rgb(var(--clrPrm));
+  }
+
+  .accountsTop {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin: 1rem 0;
+  }
+  .accountsTop div p:first-child {
+    font-size: 16px;
+  }
+  .accountsTop div p:nth-child(2),
+  .accountsTop div p:last-child {
+    color: rgb(var(--clr) / 67%);
+  }
+
+  .updateTop {
+    display: flex;
+    width: min(100%, 1000px);
+    align-items: center;
+    gap: 1rem;
+  }
+  .updateTop .left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .updateTop .left div h2 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .updateTop .left div p {
+    font-size: 14px;
+    color: rgb(var(--txt_clr-rgb) / 67%);
+  }
+  .updateTop .right {
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
   main .tilesCont .tile {
     align-items: center;
     background: hsla(0, 0%, 100%, 0.67);
@@ -262,7 +486,7 @@
     right: 16px;
     transform: scaleY(2);
   }
-  main .tilesCont .tile span {
+  main .tilesCont .settingsIcon {
     font-family: settingsIcon;
     font-size: 20px;
     margin: 0 21px 0 17.5px;

@@ -14,7 +14,7 @@ export let date = readable(new Date(), (set) => {
   return () => clearInterval(interval);
 });
 
-export let battery = writable({ level: 100, charging: false });
+export let battery = writable(50);
 export let brightness = writable(100);
 export let speaker = writable(50);
 export let wifi = writable(4);
