@@ -1,12 +1,27 @@
 <script>
-  import { activeComponent, date } from "../store";
+  import { activeComponent, date, openedApps } from "../store";
   import Battery from "./shared/Battery.svelte";
   import Speaker from "./shared/Speaker.svelte";
 
-  const toggleActiveComponent = (component) => {
-    $activeComponent === component
+  const toggleActiveComponent = (componentName) => {
+    $activeComponent === componentName
       ? ($activeComponent = "")
-      : ($activeComponent = component);
+      : ($activeComponent = componentName);
+  };
+
+  const toggleOpenApp = (appName) => {
+    if ($openedApps.length === 0) {
+      $openedApps = [appName];
+    } else {
+      $openedApps.map((e, idx) => {
+        if (e === appName) {
+          $openedApps = $openedApps.splice(idx, 1);
+        } else {
+          $openedApps = [...$openedApps, appName];
+        }
+      });
+    }
+    console.log($openedApps);
   };
 </script>
 
@@ -20,6 +35,12 @@
     </div>
     <div class="widget" on:click={() => toggleActiveComponent("Widgets")}>
       Widgets
+    </div>
+    <div class="settings" on:click={() => toggleOpenApp("Settings")}>
+      Settings
+    </div>
+    <div class="settings" on:click={() => toggleOpenApp("File Explorer")}>
+      File Explorer
     </div>
   </div>
   <div class="right">
