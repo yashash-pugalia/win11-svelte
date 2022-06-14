@@ -1,7 +1,7 @@
 <script>
   import { Button, TextBox } from "fluent-svelte";
   import { fly } from "svelte/transition";
-  import { activeComponent } from "../store";
+  import { activeComponent, apps } from "../store";
 
   let allApps = false;
 </script>
@@ -27,24 +27,12 @@
             <Button on:click={() => (allApps = true)}>All Apps &gt;</Button>
           </div>
           <div class="pinAppsGrid">
-            <div class="pnApp hvrLight">appName</div>
-            <div class="pnApp hvrLight">appName</div>
-            <div class="pnApp hvrLight">appName</div>
-            <div class="pnApp hvrLight">appName</div>
-            <div class="pnApp hvrLight">appName</div>
-            <div class="pnApp hvrLight">appName</div>
-            <div class="pnApp hvrLight">appName</div>
-            <div class="pnApp hvrLight">appName</div>
-            <div class="pnApp hvrLight">appName</div>
-            <div class="pnApp hvrLight">appName</div>
-            <div class="pnApp hvrLight">appName</div>
-            <div class="pnApp hvrLight">appName</div>
-            <div class="pnApp hvrLight">appName</div>
-            <div class="pnApp hvrLight">appName</div>
-            <div class="pnApp hvrLight">appName</div>
-            <div class="pnApp hvrLight">appName</div>
-            <div class="pnApp hvrLight">appName</div>
-            <div class="pnApp hvrLight">appName</div>
+            {#each $apps as app}
+              <div class="pnApp hvrLight">
+                <img src="" alt="" height="32" width="32" />
+                <span>{app}</span>
+              </div>
+            {/each}
           </div>
         </div>
         <div class="recommended">
@@ -72,23 +60,9 @@
           <Button on:click={() => (allApps = false)}>&lt; Back</Button>
         </div>
         <div class="appList">
-          <div class="allApp hvrLight">appName</div>
-          <div class="allApp hvrLight">appName</div>
-          <div class="allApp hvrLight">appName</div>
-          <div class="allApp hvrLight">appName</div>
-          <div class="allApp hvrLight">appName</div>
-          <div class="allApp hvrLight">appName</div>
-          <div class="allApp hvrLight">appName</div>
-          <div class="allApp hvrLight">appName</div>
-          <div class="allApp hvrLight">appName</div>
-          <div class="allApp hvrLight">appName</div>
-          <div class="allApp hvrLight">appName</div>
-          <div class="allApp hvrLight">appName</div>
-          <div class="allApp hvrLight">appName</div>
-          <div class="allApp hvrLight">appName</div>
-          <div class="allApp hvrLight">appName</div>
-          <div class="allApp hvrLight">appName</div>
-          <div class="allApp hvrLight">appName</div>
+          {#each $apps as app}
+            <div class="allApp hvrLight">{app}</div>
+          {/each}
         </div>
       </div>
     {/if}
@@ -138,15 +112,18 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(3, 1fr);
+    height: 252px; /* just enough for 3row */
+    overflow: hidden;
   }
   .pnApp {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    text-align: center;
     height: 84px;
     width: 96px;
     border-radius: 4px;
+    padding: 16px 8px 0 8px;
   }
 
   @media (max-height: 760px) {

@@ -1,26 +1,33 @@
 <script>
-  import { activeComponent, date } from "../store";
+  import { activeComponent, date, openedApps } from "../store";
   import Battery from "./shared/Battery.svelte";
   import Speaker from "./shared/Speaker.svelte";
 
-  const toggleActiveComponent = (component) => {
-    $activeComponent === component
+  const toggleActiveComponent = (componentName) => {
+    $activeComponent === componentName
       ? ($activeComponent = "")
-      : ($activeComponent = component);
+      : ($activeComponent = componentName);
+  };
+
+  // thanks a lot posandu
+  const toggleOpenApp = (appName) => {
+    if ($openedApps.includes(appName)) {
+      $openedApps = $openedApps.filter((app) => app !== appName);
+    } else {
+      $openedApps = [...new Set([...$openedApps, appName])];
+    }
   };
 </script>
 
 <div class="taskbar">
   <div class="center">
-    <div class="start" on:click={() => toggleActiveComponent("Start")}>
-      Start
-    </div>
-    <div class="search" on:click={() => toggleActiveComponent("Search")}>
-      Search
-    </div>
-    <div class="widget" on:click={() => toggleActiveComponent("Widgets")}>
+    <div on:click={() => toggleActiveComponent("Start")}>Start</div>
+    <div on:click={() => toggleActiveComponent("Search")}>Search</div>
+    <div class="widgetBtn" on:click={() => toggleActiveComponent("Widgets")}>
       Widgets
     </div>
+    <div on:click={() => toggleOpenApp("Settings")}>Settings</div>
+    <div on:click={() => toggleOpenApp("File Explorer")}>File Explorer</div>
   </div>
   <div class="right">
     <div
@@ -74,7 +81,7 @@
     align-items: center;
     justify-content: center;
   }
-  .widget {
+  .widgetBtn {
     position: absolute;
     left: 12px;
   }

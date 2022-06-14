@@ -9,12 +9,35 @@ export const components = readable([
 ]);
 export let activeComponent = writable("");
 
+export const apps = readable([
+  "Calculator",
+  "Camera",
+  "Clock",
+  "Cortana",
+  "File Explorer",
+  "Get Help",
+  "Get Started",
+  "Maps",
+  "Microsoft Edge",
+  "Microsoft Store",
+  "Notepad",
+  "Phone Link",
+  "Photos",
+  "Settings",
+  "Terminal",
+  "Video Editor",
+  "Visual Studio Code",
+  "Windows Security",
+  "Xbox Game Bar",
+]);
+export const openedApps = writable([]);
+
 export let date = readable(new Date(), (set) => {
   const interval = setInterval(() => set(new Date()), 1000);
   return () => clearInterval(interval);
 });
 
-export let battery = writable(50);
+export let battery = writable(100);
 export let brightness = writable(100);
 export let speaker = writable(50);
 export let wifi = writable(4);

@@ -1,6 +1,6 @@
 <script>
   import Settings from "../apps/Settings.svelte";
-  import { activeComponent, brightness } from "../store";
+  import { activeComponent, openedApps, brightness } from "../store";
   import ActionCenter from "./ActionCenter.svelte";
   import Calendar from "./Calendar.svelte";
   import Search from "./Search.svelte";
@@ -26,7 +26,9 @@
   </div>
 
   <div class="apps" on:click={() => ($activeComponent = "")}>
-    <Settings />
+    {#each $openedApps as e}
+      {#if e === "Settings"}<Settings />{/if}
+    {/each}
   </div>
 
   {#if $activeComponent === "ActionCenter"}<ActionCenter />{/if}
