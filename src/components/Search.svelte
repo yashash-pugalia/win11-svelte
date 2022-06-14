@@ -1,6 +1,14 @@
 <script>
   import { TextBox } from "fluent-svelte";
   import { fly } from "svelte/transition";
+
+  const topApp = [
+    "Settings",
+    "Camera",
+    "Calculator",
+    "File Explorer",
+    "Microsoft Store",
+  ];
 </script>
 
 <div
@@ -19,19 +27,32 @@
 
   <h4>Top apps</h4>
   <div class="topAppGrid">
-    <div class="topApp hvrLight">appName</div>
-    <div class="topApp hvrLight">appName</div>
-    <div class="topApp hvrLight">appName</div>
-    <div class="topApp hvrLight">appName</div>
-    <div class="topApp hvrLight">appName</div>
+    {#each topApp as app}
+      <div class="topApp hvrLight">
+        <img src="" alt="" height="32" width="32" />
+        {app}
+      </div>
+    {/each}
   </div>
 
   <h4>Quick searches</h4>
   <div class="searchTileCont">
-    <div class="searchTile hvrLight">Today in history</div>
-    <div class="searchTile hvrLight">Markets today</div>
-    <div class="searchTile hvrLight">Translate</div>
-    <div class="searchTile hvrLight">Currency converter</div>
+    <div class="searchTile hvrLight">
+      <img src="" alt="" height="20" width="20" />
+      Today in history
+    </div>
+    <div class="searchTile hvrLight">
+      <img src="" alt="" height="20" width="20" />
+      Markets today
+    </div>
+    <div class="searchTile hvrLight">
+      <img src="" alt="" height="20" width="20" />
+      Translate
+    </div>
+    <div class="searchTile hvrLight">
+      <img src="" alt="" height="20" width="20" />
+      Currency converter
+    </div>
   </div>
 </div>
 
@@ -74,6 +95,9 @@
     background: rgb(255 255 255 / 80%);
     border-radius: 4px;
   }
+  .topApp img {
+    margin-bottom: 4px;
+  }
   .topApp:hover {
     background: rgb(255 255 255 / 50%);
   }
@@ -90,12 +114,13 @@
   .searchTileCont {
     padding: 1rem 0;
   }
-
   .searchTile {
-    height: 44px;
+    height: 48px;
     display: flex;
     align-items: center;
-    padding: 1rem;
     border-radius: 4px;
+  }
+  .searchTile img {
+    margin: 0 1rem;
   }
 </style>
