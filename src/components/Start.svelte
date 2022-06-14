@@ -38,7 +38,12 @@
           <div class="pinAppsGrid">
             {#each $apps as app}
               <div class="pnApp hvrLight">
-                <img src="" alt="" height="32" width="32" />
+                <img
+                  src="assets/icon/apps/{app}.png"
+                  alt=""
+                  height="32"
+                  width="32"
+                />
                 {app}
               </div>
             {/each}
@@ -51,7 +56,12 @@
           <div class="recAppsGrid">
             {#each recApp as app}
               <div class="recApp hvrLight">
-                <img src="" alt="" height="32" width="32" />
+                <img
+                  src="assets/icon/apps/{app}.png"
+                  alt=""
+                  height="32"
+                  width="32"
+                />
                 {app}
               </div>
             {/each}
@@ -71,7 +81,12 @@
         <div class="appList">
           {#each $apps as app}
             <div class="allApp hvrLight">
-              <img src="" alt="" height="24" width="24" />
+              <img
+                src="assets/icon/apps/{app}.png"
+                alt=""
+                height="24"
+                width="24"
+              />
               {app}
             </div>
           {/each}

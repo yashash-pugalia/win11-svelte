@@ -29,7 +29,7 @@
   <div class="topAppGrid">
     {#each topApp as app}
       <div class="topApp hvrLight">
-        <img src="" alt="" height="32" width="32" />
+        <img src="assets/icon/apps/{app}.png" alt="" height="32" width="32" />
         {app}
       </div>
     {/each}

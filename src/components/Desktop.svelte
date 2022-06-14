@@ -6,13 +6,15 @@
   import Search from "./Search.svelte";
   import Start from "./Start.svelte";
   import Widgets from "./Widgets.svelte";
+
+  const dskApps = ["Microsoft Edge", "Settings"];
 </script>
 
 <div class="desktop">
   <div class="dskAppGrid" on:click={() => ($activeComponent = "")}>
-    {#each $apps as app}
+    {#each dskApps as app}
       <div class="dskApp hvrLight">
-        <img src="" alt="" height="44" width="44" />
+        <img src="assets/icon/apps/{app}.png" alt="" height="48" width="48" />
         {app}
       </div>
     {/each}
@@ -50,6 +52,7 @@
     grid-template-columns: repeat(auto-fill, 74px);
     grid-template-rows: repeat(auto-fill, 70px);
     grid-auto-flow: column;
+    padding-top: 4px;
     gap: 28px 1px;
   }
   .dskApp {

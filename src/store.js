@@ -25,8 +25,6 @@ export const apps = readable([
   "Photos",
   "Settings",
   "Terminal",
-  "Video Editor",
-  "Visual Studio Code",
   "Windows Security",
   "Xbox Game Bar",
 ]);
