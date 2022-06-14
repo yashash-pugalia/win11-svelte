@@ -1,6 +1,6 @@
 <script>
   import Settings from "../apps/Settings.svelte";
-  import { activeComponent, openedApps, brightness, apps } from "../store";
+  import { activeComponent, apps, brightness, openedApps } from "../store";
   import ActionCenter from "./ActionCenter.svelte";
   import Calendar from "./Calendar.svelte";
   import Search from "./Search.svelte";
@@ -13,7 +13,7 @@
     {#each $apps as app}
       <div class="dskApp hvrLight">
         <img src="" alt="" height="44" width="44" />
-        <span>{app}</span>
+        {app}
       </div>
     {/each}
   </div>
@@ -59,6 +59,9 @@
     font-size: 12px;
     text-align: center;
     border-radius: 2px;
+  }
+  .dskApp img {
+    margin-bottom: 4px;
   }
 
   .brightoverlay {

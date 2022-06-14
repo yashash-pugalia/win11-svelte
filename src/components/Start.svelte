@@ -4,6 +4,15 @@
   import { activeComponent, apps } from "../store";
 
   let allApps = false;
+
+  const recApp = [
+    "Calculator",
+    "Camera",
+    "File Explorer",
+    "Microsoft Store",
+    "Settings",
+    "Terminal",
+  ];
 </script>
 
 <div
@@ -30,7 +39,7 @@
             {#each $apps as app}
               <div class="pnApp hvrLight">
                 <img src="" alt="" height="32" width="32" />
-                <span>{app}</span>
+                {app}
               </div>
             {/each}
           </div>
@@ -40,12 +49,12 @@
             <h4>Recommended</h4>
           </div>
           <div class="recAppsGrid">
-            <div class="recApp hvrLight">appName</div>
-            <div class="recApp hvrLight">appName</div>
-            <div class="recApp hvrLight">appName</div>
-            <div class="recApp hvrLight">appName</div>
-            <div class="recApp hvrLight">appName</div>
-            <div class="recApp hvrLight">appName</div>
+            {#each recApp as app}
+              <div class="recApp hvrLight">
+                <img src="" alt="" height="32" width="32" />
+                {app}
+              </div>
+            {/each}
           </div>
         </div>
       </div>
@@ -61,7 +70,10 @@
         </div>
         <div class="appList">
           {#each $apps as app}
-            <div class="allApp hvrLight">{app}</div>
+            <div class="allApp hvrLight">
+              <img src="" alt="" height="24" width="24" />
+              {app}
+            </div>
           {/each}
         </div>
       </div>
@@ -126,6 +138,9 @@
     border-radius: 4px;
     padding: 16px 8px 0 8px;
   }
+  .pnApp img {
+    margin-bottom: 4px;
+  }
 
   @media (max-height: 760px) {
     .recApp:nth-child(6),
@@ -155,9 +170,12 @@
   .recApp {
     display: flex;
     align-items: center;
-    padding: 1rem;
     height: 56px;
+    font-size: 12px;
     border-radius: 4px;
+  }
+  .recApp img {
+    margin: 0 1rem;
   }
 
   .appCont,
@@ -173,10 +191,13 @@
   .allApp {
     display: flex;
     align-items: center;
-    padding: 1rem;
     height: 42px;
+    font-size: 12px;
     border-radius: 4px;
     margin: 0 3rem 0 1rem;
+  }
+  .allApp img {
+    margin: 0 1rem;
   }
 
   .bottomBar {

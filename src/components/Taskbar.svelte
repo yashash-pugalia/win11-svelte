@@ -10,11 +10,11 @@
   };
 
   // thanks a lot posandu
-  const toggleOpenApp = (appName) => {
-    if ($openedApps.includes(appName)) {
-      $openedApps = $openedApps.filter((app) => app !== appName);
+  const toggleOpenApp = (app) => {
+    if ($openedApps.includes(app)) {
+      $openedApps = $openedApps.filter((oa) => oa !== app);
     } else {
-      $openedApps = [...new Set([...$openedApps, appName])];
+      $openedApps = [...$openedApps, app];
     }
   };
 </script>
