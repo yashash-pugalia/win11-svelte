@@ -112,13 +112,14 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    height: 252px; /* just enough for 3row */
+    height: 252px; /* just enough for 3rows */
     overflow: hidden;
   }
   .pnApp {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 12px;
     text-align: center;
     height: 84px;
     width: 96px;

@@ -1,6 +1,6 @@
 <script>
   import Settings from "../apps/Settings.svelte";
-  import { activeComponent, openedApps, brightness } from "../store";
+  import { activeComponent, openedApps, brightness, apps } from "../store";
   import ActionCenter from "./ActionCenter.svelte";
   import Calendar from "./Calendar.svelte";
   import Search from "./Search.svelte";
@@ -10,19 +10,12 @@
 
 <div class="desktop">
   <div class="dskAppGrid" on:click={() => ($activeComponent = "")}>
-    <!-- desktop apps here -->
-    <div class="dskApp hvrLight">
-      <!-- app icon -->
-      appName
-    </div>
-    <div class="dskApp hvrLight">
-      <!-- app icon -->
-      appName
-    </div>
-    <div class="dskApp hvrLight">
-      <!-- app icon -->
-      appName
-    </div>
+    {#each $apps as app}
+      <div class="dskApp hvrLight">
+        <img src="" alt="" height="44" width="44" />
+        <span>{app}</span>
+      </div>
+    {/each}
   </div>
 
   <div class="apps" on:click={() => ($activeComponent = "")}>
@@ -60,12 +53,14 @@
     gap: 28px 1px;
   }
   .dskApp {
-    border-radius: 2px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 2px;
   }
+
   .brightoverlay {
     position: fixed;
     inset: 0;
