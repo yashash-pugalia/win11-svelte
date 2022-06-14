@@ -9,39 +9,25 @@
       : ($activeComponent = componentName);
   };
 
+  // thanks a lot posandu
   const toggleOpenApp = (appName) => {
-    if ($openedApps.length === 0) {
-      $openedApps = [appName];
+    if ($openedApps.includes(appName)) {
+      $openedApps = $openedApps.filter((app) => app !== appName);
     } else {
-      $openedApps.map((e, idx) => {
-        if (e === appName) {
-          $openedApps = $openedApps.splice(idx, 1);
-        } else {
-          $openedApps = [...$openedApps, appName];
-        }
-      });
+      $openedApps = [...new Set([...$openedApps, appName])];
     }
-    console.log($openedApps);
   };
 </script>
 
 <div class="taskbar">
   <div class="center">
-    <div class="start" on:click={() => toggleActiveComponent("Start")}>
-      Start
-    </div>
-    <div class="search" on:click={() => toggleActiveComponent("Search")}>
-      Search
-    </div>
-    <div class="widget" on:click={() => toggleActiveComponent("Widgets")}>
+    <div on:click={() => toggleActiveComponent("Start")}>Start</div>
+    <div on:click={() => toggleActiveComponent("Search")}>Search</div>
+    <div class="widgetBtn" on:click={() => toggleActiveComponent("Widgets")}>
       Widgets
     </div>
-    <div class="settings" on:click={() => toggleOpenApp("Settings")}>
-      Settings
-    </div>
-    <div class="settings" on:click={() => toggleOpenApp("File Explorer")}>
-      File Explorer
-    </div>
+    <div on:click={() => toggleOpenApp("Settings")}>Settings</div>
+    <div on:click={() => toggleOpenApp("File Explorer")}>File Explorer</div>
   </div>
   <div class="right">
     <div
@@ -95,7 +81,7 @@
     align-items: center;
     justify-content: center;
   }
-  .widget {
+  .widgetBtn {
     position: absolute;
     left: 12px;
   }
