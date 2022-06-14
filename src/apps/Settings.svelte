@@ -1,5 +1,6 @@
 <script>
   import { Button, ListItem, TextBox } from "fluent-svelte";
+  import { scale } from "svelte/transition";
   import data from "./settingsData.json";
 
   let tab = "System";
@@ -11,7 +12,7 @@
   };
 </script>
 
-<div class="settings">
+<div class="settings" transition:scale={{ duration: 200 }}>
   {#each Object.entries(data) as [i]}
     {#if tab === i}
       <main>
