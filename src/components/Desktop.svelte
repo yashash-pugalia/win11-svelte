@@ -9,7 +9,7 @@
 </script>
 
 <div class="desktop">
-  <div class="dskAppCont" on:click={() => ($activeComponent = "")}>
+  <div class="dskAppGrid" on:click={() => ($activeComponent = "")}>
     <!-- desktop apps here -->
     <div class="dskApp hvrLight">
       <!-- app icon -->
@@ -29,13 +29,11 @@
     <Settings />
   </div>
 
-  <div class="components">
-    {#if $activeComponent === "ActionCenter"}<ActionCenter />{/if}
-    {#if $activeComponent === "Calendar"}<Calendar />{/if}
-    {#if $activeComponent === "Search"}<Search />{/if}
-    {#if $activeComponent === "Start"}<Start />{/if}
-    {#if $activeComponent === "Widgets"}<Widgets />{/if}
-  </div>
+  {#if $activeComponent === "ActionCenter"}<ActionCenter />{/if}
+  {#if $activeComponent === "Calendar"}<Calendar />{/if}
+  {#if $activeComponent === "Search"}<Search />{/if}
+  {#if $activeComponent === "Start"}<Start />{/if}
+  {#if $activeComponent === "Widgets"}<Widgets />{/if}
 </div>
 <div
   class="brightoverlay"
@@ -47,9 +45,10 @@
     width: 100vw;
     height: calc(100vh - 48px); /* 48px is taskbars height */
     position: relative;
+    overflow: hidden;
   }
 
-  .dskAppCont {
+  .dskAppGrid {
     position: absolute;
     inset: 0;
     display: grid;

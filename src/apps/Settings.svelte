@@ -12,39 +12,6 @@
 </script>
 
 <div class="settings">
-  <nav class:open={navOpen}>
-    <div class="nav_top">
-      <div class="account" on:click={() => setTab("Accounts")}>
-        <img
-          src="assets/apps/settings/defAccount.webp"
-          alt=""
-          height="60"
-          width="60"
-        />
-        <div>
-          <p>Yashash</p>
-          <p>Local Account</p>
-        </div>
-      </div>
-      <div class="search">
-        <TextBox type="search" placeholder="Find a setting" />
-      </div>
-    </div>
-    <div class="nav_bottom">
-      {#each Object.keys(data) as e}
-        <ListItem selected={tab === e} on:click={() => setTab(e)}>
-          <img
-            src="assets/apps/settings/{e}.webp"
-            alt=""
-            height="16"
-            width="16"
-          />
-          {e}
-        </ListItem>
-      {/each}
-    </div>
-  </nav>
-
   {#each Object.entries(data) as [i]}
     {#if tab === i}
       <main>
@@ -226,6 +193,39 @@
     {/if}
   {/each}
 
+  <nav class:navOpen>
+    <div class="nav_top">
+      <div class="account" on:click={() => setTab("Accounts")}>
+        <img
+          src="assets/apps/settings/defAccount.webp"
+          alt=""
+          height="60"
+          width="60"
+        />
+        <div>
+          <p>Yashash</p>
+          <p>Local Account</p>
+        </div>
+      </div>
+      <div class="search">
+        <TextBox type="search" placeholder="Find a setting" />
+      </div>
+    </div>
+    <div class="nav_bottom">
+      {#each Object.keys(data) as e}
+        <ListItem selected={tab === e} on:click={() => setTab(e)}>
+          <img
+            src="assets/apps/settings/{e}.webp"
+            alt=""
+            height="16"
+            width="16"
+          />
+          {e}
+        </ListItem>
+      {/each}
+    </div>
+  </nav>
+
   <div class="navMenuBtn" on:click={() => (navOpen = !navOpen)}>
     <svg fill="currentColor" viewBox="0 0 48 48" height="24" width="24">
       <path
@@ -241,13 +241,14 @@
     color: rgb(var(--clr));
     padding-left: 300px;
     position: absolute;
-    inset: 0;
+    inset: 10%;
     border-radius: 8px;
     overflow: hidden;
   }
   nav {
     height: 100%;
     left: 0;
+    top: 0;
     position: absolute;
     width: 300px;
   }
@@ -278,7 +279,7 @@
     display: flex;
     flex-direction: column;
     height: calc(100% - 144px);
-    overflow: overlay;
+    overflow-y: overlay;
     position: relative;
     padding: 0 12px;
   }
@@ -301,7 +302,6 @@
     flex-direction: column;
     gap: 4px;
     height: calc(100% - 64px);
-
     overflow-y: overlay;
     padding: 0 24px 44px;
   }
@@ -540,7 +540,6 @@
       position: absolute;
       right: 8px;
       top: 8px;
-      z-index: 99;
     }
     .navMenuBtn:hover {
       background: rgb(var(--clr) / 5%);
@@ -558,9 +557,8 @@
       background: rgb(var(--bg1));
       transform: translateX(-100%);
       transition: all 0.2s cubic-bezier(0, 0, 0, 1);
-      z-index: 9;
     }
-    nav.open {
+    nav.navOpen {
       transform: translateX(0);
     }
   }
