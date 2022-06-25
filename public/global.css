@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+:root {
+  --bg1: 243 243 243;
+  --bg2: 238 238 238;
+  --bg3: 250 250 250;
+  --bg4: 242 242 242;
+  --bg5: 251 251 251;
+  --bg6: 234 234 234;
+  --bg7: 247 247 247;
+  --bg8: 255 255 255;
+
+  --clrPrm: 0 103 192;
+  --clr: 0 0 0;
+  --altClr: 255 255 255;
+
+  --mica: #f3f3f3 radial-gradient(#eff4f9 75%, #f3f3f3 100%) no-repeat fixed;
+}
+
+@font-face {
+  font-family: "Segoe UI Variable";
+  src: url(assets/font/SegoeUI-VF.woff2) format("woff2"),
+    url(assets/font/SegoeUI-VF.woff) format("woff"),
+    url(assets/font/SegoeUI-VF.ttf) format("truetype");
+  font-display: swap;
+}
+@font-face {
+  font-family: "settingsIcon";
+  src: url(assets/font/settingsIcon.woff2) format("woff2"),
+    url(assets/font/SegoeUI-VF.woff) format("woff"),
+    url(assets/font/SegoeUI-VF.ttf) format("truetype");
+  font-display: swap;
+}
+
+body {
+  background: url("assets/Wallpaper/Windows/img0.jpg") fixed center / cover;
+  color: rgb(var(--clr));
+  font-family: "Segoe UI Variable", "Segoe UI", sans-serif;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.hvrLight:hover {
+  background: rgb(255 255 255 / 67%);
+}
+.hvrDark:hover {
+  background: rgb(0 0 0 / 6%);
+}
+
+.activeShadow {
+  box-shadow: 0 8px 16px rgb(0 0 0 / 0.25);
+  border: 1px solid rgb(var(--clr) / 15%);
+}
+
+::-webkit-scrollbar {
+  --scrollbar-top-btn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6.102 16.981c-1.074 0-1.648-1.265-.941-2.073l5.522-6.311a1.75 1.75 0 0 1 2.634 0l5.522 6.311c.707.808.133 2.073-.941 2.073H6.102z' fill='rgb(0 0 0 / 50%)'/%3E%3C/svg%3E");
+  --scrollbar-bottom-btn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6.102 8c-1.074 0-1.648 1.265-.941 2.073l5.522 6.311a1.75 1.75 0 0 0 2.634 0l5.522-6.311c.707-.808.133-2.073-.941-2.073H6.102z' fill='rgb(0 0 0 / 50%)'/%3E%3C/svg%3E");
+  --scroll: 255 255 255;
+
+  border-radius: 14px;
+  display: none;
+  width: 14px;
+}
+::-webkit-scrollbar:hover {
+  background: var(--scrollbar-bottom-btn) 0 100% / contain no-repeat,
+    var(--scrollbar-top-btn) 0 0 / contain no-repeat, rgb(var(--scroll) / 80%);
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--clr) / 50%);
+  background-clip: padding-box;
+  border: 6px solid transparent;
+  border-radius: 14px;
+}
+::-webkit-scrollbar-thumb:hover {
+  border: 4px solid transparent;
+}
+::-webkit-scrollbar-button:single-button {
+  height: 10px;
+}
+:hover::-webkit-scrollbar {
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg1: 32 32 32;
+    --bg2: 28 28 28;
+    --bg3: 41 41 41;
+    --bg4: 36 36 36;
+    --bg5: 49 49 49;
+    --bg6: 31 31 31;
+    --bg7: 59 59 59;
+    --bg8: 43 43 43;
+
+    --clrPrm: 76 194 255;
+    --clr: 255 255 255;
+    --altClr: 0 0 0;
+
+    --mica: #202020 radial-gradient(#1a1f35 25%, #202020 100%) no-repeat fixed;
+  }
+
+  body {
+    background: url("assets/Wallpaper/Windows/img19.jpg") fixed center / cover;
+  }
+
+  .hvrLight:hover {
+    background: rgb(255 255 255 / 8%);
+  }
+  .hvrDark:hover {
+    background: rgb(255 255 255 / 6%);
+  }
+
+  .icon {
+    filter: invert(1);
+  }
+
+  ::-webkit-scrollbar {
+    --scrollbar-top-btn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6.102 16.981c-1.074 0-1.648-1.265-.941-2.073l5.522-6.311a1.75 1.75 0 0 1 2.634 0l5.522 6.311c.707.808.133 2.073-.941 2.073H6.102z' fill='rgb(255 255 255 / 50%)'/%3E%3C/svg%3E");
+    --scrollbar-bottom-btn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M6.102 8c-1.074 0-1.648 1.265-.941 2.073l5.522 6.311a1.75 1.75 0 0 0 2.634 0l5.522-6.311c.707-.808.133-2.073-.941-2.073H6.102z' fill='rgb(255 255 255 / 50%)'/%3E%3C/svg%3E");
+    --scroll: 44 44 44;
+  }
+}
