@@ -1,0 +1,42 @@
+name: PR Preview
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  PR-Preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: ⌛ PR preview in progress
+
+      - uses: actions/checkout@v3
+        with:
+          ref: refs/pull/${{ github.event.number }}/merge
+
+      - uses: actions/setup-node@v3
+        with:
+          cache: npm
+          node-version: 16
+
+      - run: npm ci && npm run build
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          destination_dir: pr/${{ github.event.number }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          user_email: github-actions[bot]@users.noreply.github.com
+          user_name: github-actions[bot]
+
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: ✅ Preview ready - https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/pr/${{ github.event.number }}/
+
+      - if: ${{ failure() }}
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: ❌ Preview failed - 🔍 Inspect the [deploy log](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
