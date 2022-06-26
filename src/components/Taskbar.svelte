@@ -20,7 +20,7 @@
 <div class="taskbar">
   <div class="center">
     <div class="taskIcon hvrLight" on:click={() => toggleActiveThing("Start")}>
-      <img src="assets/icon/Start.png" alt="Start" height="24" width="24" />
+      <img src="img/icon/Start.png" alt="Start" height="24" width="24" />
     </div>
     <div class="taskIcon hvrLight" on:click={() => toggleActiveThing("Search")}>
       <svg
@@ -42,7 +42,7 @@
     </div>
     <div class="taskIcon hvrLight">
       <img
-        src="assets/icon/Task View.png"
+        src="img/icon/Task View.png"
         alt="Task View"
         height="24"
         width="24"
@@ -52,11 +52,11 @@
       class="taskIcon widgetBtn hvrLight"
       on:click={() => toggleActiveThing("Widgets")}
     >
-      <img src="assets/icon/Widgets.png" alt="Widgets" height="24" width="24" />
+      <img src="img/icon/Widgets.png" alt="Widgets" height="24" width="24" />
     </div>
     {#each taskApps as app}
       <div class="taskIcon hvrLight" on:click={() => toggleOpenApp(app)}>
-        <img src="assets/icon/{app}.png" alt={app} height="24" width="24" />
+        <img src="img/icon/{app}.png" alt={app} height="24" width="24" />
       </div>
     {/each}
   </div>
@@ -68,7 +68,7 @@
     >
       <img
         class="icon"
-        src="assets/icon/ui/wifi.svg"
+        src="img/icon/ui/wifi.svg"
         height="20"
         width="20"
         alt=""

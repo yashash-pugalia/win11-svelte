@@ -15,7 +15,7 @@
   <div class="dskAppGrid" on:click={() => ($activeThing = "")}>
     {#each dskApps as app}
       <button class="dskApp">
-        <img src="assets/icon/{app}.png" alt="" height="48" width="48" />
+        <img src="img/icon/{app}.png" alt="" height="48" width="48" />
         {app}
       </button>
     {/each}
