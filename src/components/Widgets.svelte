@@ -98,6 +98,7 @@
     flex-direction: column;
     overflow: hidden;
     box-shadow: 0 2px 4px rgb(0 0 0 / 25%);
+    transition: all 200ms;
   }
   @media (prefers-color-scheme: dark) {
     .topStories {
@@ -176,7 +177,8 @@
   .article.small {
     height: 146px;
     grid-row: span 1;
-    background: var(--newsImg) calc(100% - 1rem) 1rem / 80px 80px no-repeat,
+    background: var(--newsImg, url()) calc(100% - 1rem) 1rem / 80px 80px
+        no-repeat,
       linear-gradient(90deg, hsl(var(--randClr)) 0%, white 200%);
   }
   .article.small h3 {

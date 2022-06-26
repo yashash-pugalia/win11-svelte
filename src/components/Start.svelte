@@ -39,7 +39,7 @@
             {#each $apps as app}
               <div class="pnApp hvrLight">
                 <img
-                  src="assets/icon/{app}.png"
+                  src="img/icon/{app}.png"
                   alt=""
                   height="32"
                   width="32"
@@ -57,7 +57,7 @@
             {#each recApp as app}
               <div class="recApp hvrLight">
                 <img
-                  src="assets/icon/{app}.png"
+                  src="img/icon/{app}.png"
                   alt=""
                   height="32"
                   width="32"
@@ -81,7 +81,7 @@
         <div class="appList">
           {#each $apps as app}
             <div class="allApp hvrLight">
-              <img src="assets/icon/{app}.png" alt="" height="24" width="24" />
+              <img src="img/icon/{app}.png" alt="" height="24" width="24" />
               {app}
             </div>
           {/each}

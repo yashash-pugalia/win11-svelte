@@ -24,21 +24,21 @@
 
 @font-face {
   font-family: "Segoe UI Variable";
-  src: url(assets/font/SegoeUI-VF.woff2) format("woff2"),
-    url(assets/font/SegoeUI-VF.woff) format("woff"),
-    url(assets/font/SegoeUI-VF.ttf) format("truetype");
+  src: url(../font/SegoeUI-VF.woff2) format("woff2"),
+    url(../font/SegoeUI-VF.woff) format("woff"),
+    url(../font/SegoeUI-VF.ttf) format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "settingsIcon";
-  src: url(assets/font/settingsIcon.woff2) format("woff2"),
-    url(assets/font/SegoeUI-VF.woff) format("woff"),
-    url(assets/font/SegoeUI-VF.ttf) format("truetype");
+  src: url(../font/settingsIcon.woff2) format("woff2"),
+    url(../font/SegoeUI-VF.woff) format("woff"),
+    url(../font/SegoeUI-VF.ttf) format("truetype");
   font-display: swap;
 }
 
 body {
-  background: url("assets/Wallpaper/Windows/img0.jpg") fixed center / cover;
+  background: url("../img/Wallpaper/Windows/img0.jpg") fixed center / cover;
   color: rgb(var(--clr));
   font-family: "Segoe UI Variable", "Segoe UI", sans-serif;
   overflow: hidden;
@@ -105,7 +105,7 @@ body {
   }
 
   body {
-    background: url("assets/Wallpaper/Windows/img19.jpg") fixed center / cover;
+    background: url("../img/Wallpaper/Windows/img19.jpg") fixed center / cover;
   }
 
   .hvrLight:hover {

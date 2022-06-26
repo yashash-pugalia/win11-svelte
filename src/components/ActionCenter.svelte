@@ -35,7 +35,7 @@
         <IconButton>
           <img
             class="icon"
-            src="assets/icon/ui/sun.svg"
+            src="img/icon/ui/sun.svg"
             height="20"
             width="20"
             alt=""
