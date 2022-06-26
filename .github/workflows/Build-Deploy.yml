@@ -25,3 +25,5 @@ jobs:
           keep_files: true
           user_email: github-actions[bot]@users.noreply.github.com
           user_name: github-actions[bot]
+          publish_dir: dist
+
