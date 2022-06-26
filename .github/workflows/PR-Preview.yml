@@ -28,9 +28,9 @@ jobs:
         with:
           destination_dir: pr/${{ github.event.number }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
           user_email: github-actions[bot]@users.noreply.github.com
           user_name: github-actions[bot]
-          publish_dir: dist
 
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
