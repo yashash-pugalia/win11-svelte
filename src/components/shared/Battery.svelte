@@ -26,7 +26,7 @@
       <div class="charger">
         <img
           class="icon"
-          src="assets/icon/ui/btCharge.svg"
+          src="img/icon/ui/btCharge.svg"
           height="12"
           width="12"
           alt=""
@@ -35,7 +35,7 @@
     {/if}
     <img
       class="icon"
-      src="assets/icon/ui/btEmpty.svg"
+      src="img/icon/ui/btEmpty.svg"
       height="20"
       width="20"
       alt=""
@@ -43,7 +43,7 @@
     <div class="btFull" style="width: {Math.abs($battery)}%">
       <img
         class="icon"
-        src="assets/icon/ui/btFull.svg"
+        src="img/icon/ui/btFull.svg"
         height="20"
         width="20"
         alt=""

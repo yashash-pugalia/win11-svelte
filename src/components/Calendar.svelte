@@ -22,7 +22,7 @@
     <Button style="padding: 4px;" on:click={() => (collapse = !collapse)}>
       <img
         class="icon collapser"
-        src="assets/icon/ui/ChevronUp.svg"
+        src="img/icon/ui/ChevronUp.svg"
         height="16"
         width="16"
         alt=""

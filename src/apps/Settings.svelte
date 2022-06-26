@@ -30,7 +30,7 @@
               {:else if e.type === "sysTop"}
                 <div class="left">
                   <img
-                    src="assets/Wallpaper/Windows/img0.jpg"
+                    src="img/Wallpaper/Windows/img0.jpg"
                     class="device_img"
                     alt=""
                     height="72"
@@ -45,7 +45,7 @@
                 <div class="right">
                   <div class="column">
                     <img
-                      src="assets/apps/settings/msft.svg"
+                      src="img/apps/settings/msft.svg"
                       alt=""
                       height="20"
                       width="20"
@@ -58,7 +58,7 @@
                   </div>
                   <div class="column" on:click={() => setTab("Windows Update")}>
                     <img
-                      src="assets/apps/settings/Windows Update.webp"
+                      src="img/apps/settings/Windows Update.webp"
                       alt=""
                       height="20"
                       width="20"
@@ -75,7 +75,7 @@
               {:else if e.type === "netTop"}
                 <div>
                   <img
-                    src="assets/apps/settings/wifi.png"
+                    src="img/apps/settings/wifi.png"
                     alt=""
                     height="100"
                     width="100"
@@ -102,7 +102,7 @@
               {:else if e.type === "personaliseTop"}
                 <img
                   class="mainImg"
-                  src="assets/Wallpaper/Windows/img0.jpg"
+                  src="img/Wallpaper/Windows/img0.jpg"
                   alt=""
                   height="200"
                   width="310.5"
@@ -113,7 +113,7 @@
                     {#each $themes as theme}
                       <img
                         class:selected={theme === "Windows/img0"}
-                        src="assets/Wallpaper/{theme}.jpg"
+                        src="img/Wallpaper/{theme}.jpg"
                         alt=""
                         height="75"
                         width="120"
@@ -123,7 +123,7 @@
                 </div>
               {:else if e.type === "accountsTop"}
                 <img
-                  src="assets/apps/settings/defAccount.webp"
+                  src="img/apps/settings/defAccount.webp"
                   alt=""
                   height="90"
                   width="90"
@@ -144,7 +144,7 @@
               {:else if e.type === "updateTop"}
                 <div class="left">
                   <img
-                    src="assets/apps/settings/update.png"
+                    src="img/apps/settings/update.png"
                     height="90"
                     width="90"
                     alt=""
@@ -171,7 +171,7 @@
     <div class="nav_top">
       <div class="account" on:click={() => setTab("Accounts")}>
         <img
-          src="assets/apps/settings/defAccount.webp"
+          src="img/apps/settings/defAccount.webp"
           alt=""
           height="60"
           width="60"
@@ -189,7 +189,7 @@
       {#each Object.keys(data) as e}
         <ListItem selected={tab === e} on:click={() => setTab(e)}>
           <img
-            src="assets/apps/settings/{e}.webp"
+            src="img/apps/settings/{e}.webp"
             alt=""
             height="16"
             width="16"
