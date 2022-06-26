@@ -72,6 +72,7 @@
     color: white;
     text-shadow: 0 0 1px black, 0 0 2px black, 0 0 3px black, 0 0 4px black,
       0 1px 1px black, 0 1px 2px black;
+    -webkit-user-drag: element;
   }
   .dskApp:focus,
   .dskApp:focus-visible {
