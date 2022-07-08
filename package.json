@@ -1,5 +1,5 @@
 {
-  "name": "-win11-svelte",
+  "name": "win11-svelte",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,9 +9,9 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
+    "@sveltejs/vite-plugin-svelte": "^1.0.1",
     "fluent-svelte": "^1.6.0",
     "svelte": "^3.49.0",
-    "vite": "^2.9.13"
+    "vite": "^3.0.8"
   }
 }

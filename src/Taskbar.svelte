@@ -1,7 +1,7 @@
 <script>
-  import { activeThing, date, openedApps } from "../store";
-  import Battery from "./shared/Battery.svelte";
-  import Speaker from "./shared/Speaker.svelte";
+  import { activeThing, date, openedApps } from "./store";
+  import Battery from "./components/shared/Battery.svelte";
+  import Speaker from "./components/shared/Speaker.svelte";
 
   const toggleActiveThing = (e) => ($activeThing = $activeThing === e ? "" : e);
 
@@ -14,7 +14,15 @@
     }
   };
 
-  const taskApps = ["File Explorer", "Microsoft Edge", "Settings"];
+  const taskApps = [
+    "Calculator",
+    "Camera",
+    "Microsoft Edge",
+    "Microsoft Store",
+    "Notepad",
+    "Settings",
+    "VS Code",
+  ];
 </script>
 
 <div class="taskbar">

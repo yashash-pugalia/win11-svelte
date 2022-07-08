@@ -3,10 +3,23 @@ name: Build & Deploy
 on:
   push:
     branches: [main]
+
   workflow_dispatch:
+
+permissions:
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   Build-Deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
 
     steps:
@@ -14,15 +27,14 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          cache: npm
           node-version: 16
+          cache: npm
 
       - run: npm ci && npm run build
 
-      - uses: peaceiris/actions-gh-pages@v3
+      - uses: actions/upload-pages-artifact@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          keep_files: true
-          publish_dir: dist
-          user_email: github-actions[bot]@users.noreply.github.com
-          user_name: github-actions[bot]
+          path: dist
+
+      - id: deployment
+        uses: actions/deploy-pages@v1

@@ -44,8 +44,8 @@
     },
     {
       title: "Yashash",
-      image: "https://yashash.is-a.dev/favicon.webp",
-      link: "https://yashash.is-a.dev",
+      image: "https://yashash1511.github.io/favicon.webp",
+      link: "https://yashash1511.github.io",
     },
   ];
 </script>
