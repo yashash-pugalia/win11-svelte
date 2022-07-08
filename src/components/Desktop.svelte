@@ -1,5 +1,8 @@
 <script>
+  import Calculator from "../apps/Calculator.svelte";
+  import Camera from "../apps/Camera.svelte";
   import Edge from "../apps/Edge.svelte";
+  import Notepad from "../apps/Notepad.svelte";
   import Settings from "../apps/Settings.svelte";
   import { activeThing, brightness, openedApps } from "../store";
   import ActionCenter from "./ActionCenter.svelte";
@@ -23,8 +26,11 @@
 
   <div class="apps" on:click={() => ($activeThing = "")}>
     {#each $openedApps as e}
-      {#if e === "Settings"}<Settings />{/if}
+      {#if e === "Calculator"}<Calculator />{/if}
+      {#if e === "Camera"}<Camera />{/if}
       {#if e === "Microsoft Edge"}<Edge />{/if}
+      {#if e === "Notepad"}<Notepad />{/if}
+      {#if e === "Settings"}<Settings />{/if}
     {/each}
   </div>
 
