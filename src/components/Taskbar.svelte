@@ -14,7 +14,14 @@
     }
   };
 
-  const taskApps = ["File Explorer", "Microsoft Edge", "Settings"];
+  const taskApps = [
+    "Calculator",
+    "Camera",
+    "Microsoft Edge",
+    "Microsoft Store",
+    "Notepad",
+    "Settings",
+  ];
 </script>
 
 <div class="taskbar">
