@@ -18,6 +18,7 @@
     "Calculator",
     "Camera",
     "Microsoft Edge",
+    "Microsoft Store",
     "Notepad",
     "Settings",
   ];

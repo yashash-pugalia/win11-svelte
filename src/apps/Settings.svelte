@@ -188,12 +188,7 @@
     <div class="nav_bottom">
       {#each Object.keys(data) as e}
         <ListItem selected={tab === e} on:click={() => setTab(e)}>
-          <img
-            src="img/apps/settings/{e}.webp"
-            alt=""
-            height="16"
-            width="16"
-          />
+          <img src="img/apps/settings/{e}.webp" alt="" height="16" width="16" />
           {e}
         </ListItem>
       {/each}

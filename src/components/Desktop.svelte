@@ -4,6 +4,7 @@
   import Edge from "../apps/Edge.svelte";
   import Notepad from "../apps/Notepad.svelte";
   import Settings from "../apps/Settings.svelte";
+  import Store from "../apps/Store.svelte";
   import { activeThing, brightness, openedApps } from "../store";
   import ActionCenter from "./ActionCenter.svelte";
   import Calendar from "./Calendar.svelte";
@@ -29,6 +30,7 @@
       {#if e === "Calculator"}<Calculator />{/if}
       {#if e === "Camera"}<Camera />{/if}
       {#if e === "Microsoft Edge"}<Edge />{/if}
+      {#if e === "Microsoft Store"}<Store />{/if}
       {#if e === "Notepad"}<Notepad />{/if}
       {#if e === "Settings"}<Settings />{/if}
     {/each}
