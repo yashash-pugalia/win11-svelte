@@ -96,14 +96,6 @@
     background: white;
   }
 
-  .btn:last-child {
-    background: rgb(var(--clrPrm));
-    color: rgb(var(--altClr));
-  }
-  .btn:last-child:hover {
-    background: rgb(var(--clrPrm) / 80%);
-  }
-
   @media (prefers-color-scheme: dark) {
     .btn:hover,
     .btn:nth-child(-n + 8),
@@ -116,5 +108,13 @@
     .btn:nth-child(4n):hover {
       background: rgb(255 255 255 / 10%);
     }
+  }
+
+  .btn:last-child {
+    background: rgb(var(--clrPrm));
+    color: rgb(var(--altClr));
+  }
+  .btn:last-child:hover {
+    background: rgb(var(--clrPrm) / 80%);
   }
 </style>
