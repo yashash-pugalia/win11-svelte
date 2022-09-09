@@ -9,7 +9,7 @@ export const components = readable([
 ]);
 export let activeThing = writable("");
 
-export const apps = readable([
+export const appList = readable([
   "Calculator",
   "Camera",
   "Clock",
@@ -25,6 +25,7 @@ export const apps = readable([
   "Photos",
   "Settings",
   "Terminal",
+  "VS Code",
   "Windows Security",
   "Xbox Game Bar",
 ]);

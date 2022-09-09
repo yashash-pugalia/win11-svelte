@@ -4,7 +4,7 @@
   import { date } from "../store";
 
   const getNews = (async () => {
-    const res = await fetch("https://github.win11react.com/NewsAPI/data.json");
+    const res = await fetch("https://github.win11react.com/api-cache/news.json");
     return await res.json();
   })();
 </script>
@@ -37,7 +37,7 @@
             </a>
           {/if}{/each}
       </div>
-      {#each news.articles as n, i}{#if i >= 3}
+      {#each news.articles as n, i}{#if i >= 3 && n.urlToImage != null}
           <a
             class="article"
             class:small={i < 5}
@@ -82,6 +82,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(auto-fill, 146px);
+    grid-auto-flow: dense;
 
     height: calc(100% - 70px);
     margin: 12px -25px 0;

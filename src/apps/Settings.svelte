@@ -1,6 +1,8 @@
 <script>
+  import { draggable } from "@neodrag/svelte";
   import { Button, ListItem, TextBox } from "fluent-svelte";
   import { scale } from "svelte/transition";
+  import Toolbar from "../components/shared/Toolbar.svelte";
   import { themes } from "../store";
   import data from "./settingsData.json";
 
@@ -13,212 +15,238 @@
   };
 </script>
 
-<div class="settings activeShadow" transition:scale={{ duration: 200 }}>
-  {#each Object.entries(data) as [i]}
-    {#if tab === i}
-      <main>
-        <h1>{tab}</h1>
-        <div class="tilesCont">
-          {#each data[tab] as e}
-            <div class={e.type}>
-              {#if e.type === "tile" || e.type === "tile square" || e.type === "tile thin-blue"}
-                <span class="settingsIcon">{e.icon ? e.icon : ""}</span>
-                <div>
-                  <p>{e.name}</p>
-                  <p class="tile_desc">{e.desc ? e.desc : ""}</p>
-                </div>
-              {:else if e.type === "sysTop"}
-                <div class="left">
-                  <img
-                    src="img/Wallpaper/Windows/img0.jpg"
-                    class="device_img"
-                    alt=""
-                    height="72"
-                    width="110.5"
-                  />
-                  <div class="column_device">
-                    <p class="device_name">Liber-V</p>
-                    <p class="device_model">NS14A8</p>
-                    <p class="device_rename">Rename</p>
+<div
+  class="settings activeShadow"
+  use:draggable={{
+    handle: ".mainToolbar",
+  }}
+  transition:scale={{ duration: 200 }}
+>
+  <Toolbar appName="Settings" />
+  <div class="mainApp">
+    {#each Object.entries(data) as [i]}
+      {#if tab === i}
+        <main>
+          <h1>{tab}</h1>
+          <div class="tilesCont">
+            {#each data[tab] as e}
+              <div class={e.type}>
+                {#if e.type === "tile" || e.type === "tile square" || e.type === "tile thin-blue"}
+                  <span class="settingsIcon">{e.icon ? e.icon : ""}</span>
+                  <div>
+                    <p>{e.name}</p>
+                    <p class="tile_desc">{e.desc ? e.desc : ""}</p>
                   </div>
-                </div>
-                <div class="right">
-                  <div class="column">
+                {:else if e.type === "sysTop"}
+                  <div class="left">
                     <img
-                      src="img/apps/settings/msft.svg"
+                      src="img/Wallpaper/Windows/img0.jpg"
+                      class="device_img"
                       alt=""
-                      height="20"
-                      width="20"
+                      height="72"
+                      width="110.5"
                     />
-                    <p>
-                      Microsoft 365
-                      <br />
-                      <span class="column_lower">View benefits</span>
-                    </p>
+                    <div class="column_device">
+                      <p class="device_name">Liber-V</p>
+                      <p class="device_model">NS14A8</p>
+                      <p class="device_rename">Rename</p>
+                    </div>
                   </div>
-                  <div class="column" on:click={() => setTab("Windows Update")}>
-                    <img
-                      src="img/apps/settings/Windows Update.webp"
-                      alt=""
-                      height="20"
-                      width="20"
-                    />
-                    <p>
-                      Windows Update
-                      <br />
-                      <span class="column_lower">
-                        Last checked: {Math.ceil(Math.random() * 12)} hours ago
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              {:else if e.type === "netTop"}
-                <div>
-                  <img
-                    src="img/apps/settings/wifi.png"
-                    alt=""
-                    height="100"
-                    width="100"
-                  />
-                  <div>
-                    <h2>WiFi</h2>
-                    <p>Connected, secured</p>
-                  </div>
-                </div>
-                <div class="box">
-                  <span class="settingsIcon"></span>
-                  <div>
-                    <h3>Properties</h3>
-                    <p>Public network 5 Ghz</p>
-                  </div>
-                </div>
-                <div class="box">
-                  <span class="settingsIcon"></span>
-                  <div>
-                    <h3>Data Usage</h3>
-                    <p>{Math.round(Math.random() * 100)}GB, last 30 days</p>
-                  </div>
-                </div>
-              {:else if e.type === "personaliseTop"}
-                <img
-                  class="mainImg"
-                  src="img/Wallpaper/Windows/img0.jpg"
-                  alt=""
-                  height="200"
-                  width="310.5"
-                />
-                <div>
-                  <h3>Select a theme to apply</h3>
-                  <div class="bgBox">
-                    {#each $themes as theme}
+                  <div class="right">
+                    <div class="column">
                       <img
-                        class:selected={theme === "Windows/img0"}
-                        src="img/Wallpaper/{theme}.jpg"
+                        src="img/apps/settings/msft.svg"
                         alt=""
-                        height="75"
-                        width="120"
+                        height="20"
+                        width="20"
                       />
-                    {/each}
+                      <p>
+                        Microsoft 365
+                        <br />
+                        <span class="column_lower">View benefits</span>
+                      </p>
+                    </div>
+                    <div
+                      class="column"
+                      on:click={() => setTab("Windows Update")}
+                    >
+                      <img
+                        src="img/apps/settings/Windows Update.webp"
+                        alt=""
+                        height="20"
+                        width="20"
+                      />
+                      <p>
+                        Windows Update
+                        <br />
+                        <span class="column_lower">
+                          Last checked: {Math.ceil(Math.random() * 12)} hours ago
+                        </span>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              {:else if e.type === "accountsTop"}
-                <img
-                  src="img/apps/settings/defAccount.webp"
-                  alt=""
-                  height="90"
-                  width="90"
-                />
-                <div>
-                  <p>YASHASH</p>
-                  <p>Local Account</p>
-                  <p>Administrator</p>
-                </div>
-              {:else if e.type === "timeTop"}
-                <h1>
-                  {new Date().toLocaleTimeString("en-US", {
-                    hour: "numeric",
-                    minute: "numeric",
-                    hour12: true,
-                  })}
-                </h1>
-              {:else if e.type === "updateTop"}
-                <div class="left">
+                {:else if e.type === "netTop"}
+                  <div>
+                    <img
+                      src="img/apps/settings/wifi.png"
+                      alt=""
+                      height="100"
+                      width="100"
+                    />
+                    <div>
+                      <h2>WiFi</h2>
+                      <p>Connected, secured</p>
+                    </div>
+                  </div>
+                  <div class="box">
+                    <span class="settingsIcon"></span>
+                    <div>
+                      <h3>Properties</h3>
+                      <p>Public network 5 Ghz</p>
+                    </div>
+                  </div>
+                  <div class="box">
+                    <span class="settingsIcon"></span>
+                    <div>
+                      <h3>Data Usage</h3>
+                      <p>{Math.round(Math.random() * 100)}GB, last 30 days</p>
+                    </div>
+                  </div>
+                {:else if e.type === "personaliseTop"}
                   <img
-                    src="img/apps/settings/update.png"
+                    class="mainImg"
+                    src="img/Wallpaper/Windows/img0.jpg"
+                    alt=""
+                    height="200"
+                    width="310.5"
+                  />
+                  <div>
+                    <h3>Select a theme to apply</h3>
+                    <div class="bgBox">
+                      {#each $themes as theme}
+                        <img
+                          class:selected={theme === "Windows/img0"}
+                          src="img/Wallpaper/{theme}.jpg"
+                          alt=""
+                          height="75"
+                          width="120"
+                        />
+                      {/each}
+                    </div>
+                  </div>
+                {:else if e.type === "accountsTop"}
+                  <img
+                    src="img/apps/settings/defAccount.webp"
+                    alt=""
                     height="90"
                     width="90"
-                    alt=""
                   />
                   <div>
-                    <h2>You're up to date</h2>
-                    <p>Last checked: Today</p>
+                    <p>YASHASH</p>
+                    <p>Local Account</p>
+                    <p>Administrator</p>
                   </div>
-                </div>
-                <div class="right">
-                  <Button variant="accent">Check for updates</Button>
-                </div>
-              {:else if e.type === "subHeading" || e.type === "spacer"}
-                {e.name ? e.name : ""}
-              {/if}
-            </div>
-          {/each}
-        </div>
-      </main>
-    {/if}
-  {/each}
+                {:else if e.type === "timeTop"}
+                  <h1>
+                    {new Date().toLocaleTimeString("en-US", {
+                      hour: "numeric",
+                      minute: "numeric",
+                      hour12: true,
+                    })}
+                  </h1>
+                {:else if e.type === "updateTop"}
+                  <div class="left">
+                    <img
+                      src="img/apps/settings/update.png"
+                      height="90"
+                      width="90"
+                      alt=""
+                    />
+                    <div>
+                      <h2>You're up to date</h2>
+                      <p>Last checked: Today</p>
+                    </div>
+                  </div>
+                  <div class="right">
+                    <Button variant="accent">Check for updates</Button>
+                  </div>
+                {:else if e.type === "subHeading" || e.type === "spacer"}
+                  {e.name ? e.name : ""}
+                {/if}
+              </div>
+            {/each}
+          </div>
+        </main>
+      {/if}
+    {/each}
 
-  <nav class:navOpen>
-    <div class="nav_top">
-      <div class="account" on:click={() => setTab("Accounts")}>
-        <img
-          src="img/apps/settings/defAccount.webp"
-          alt=""
-          height="60"
-          width="60"
-        />
-        <div>
-          <p>Yashash</p>
-          <p>Local Account</p>
-        </div>
-      </div>
-      <div class="search">
-        <TextBox type="search" placeholder="Find a setting" />
-      </div>
-    </div>
-    <div class="nav_bottom">
-      {#each Object.keys(data) as e}
-        <ListItem selected={tab === e} on:click={() => setTab(e)}>
+    <nav class:navOpen>
+      <div class="nav_top">
+        <div class="account" on:click={() => setTab("Accounts")}>
           <img
-            src="img/apps/settings/{e}.webp"
+            src="img/apps/settings/defAccount.webp"
             alt=""
-            height="16"
-            width="16"
+            height="60"
+            width="60"
           />
-          {e}
-        </ListItem>
-      {/each}
-    </div>
-  </nav>
+          <div>
+            <p>Yashash</p>
+            <p>Local Account</p>
+          </div>
+        </div>
+        <div class="search">
+          <TextBox type="search" placeholder="Find a setting" />
+        </div>
+      </div>
+      <div class="nav_bottom">
+        {#each Object.keys(data) as e}
+          <ListItem selected={tab === e} on:click={() => setTab(e)}>
+            <img
+              src="img/apps/settings/{e}.webp"
+              alt=""
+              height="16"
+              width="16"
+            />
+            {e}
+          </ListItem>
+        {/each}
+      </div>
+    </nav>
 
-  <div class="navMenuBtn" on:click={() => (navOpen = !navOpen)}>
-    <svg fill="currentColor" viewBox="0 0 48 48" height="24" width="24">
-      <path
-        d="M5.5 9a1.5 1.5 0 1 0 0 3h37a1.5 1.5 0 1 0 0-3h-37zm0 13.5a1.5 1.5 0 1 0 0 3h37a1.5 1.5 0 1 0 0-3h-37zm0 13.5a1.5 1.5 0 1 0 0 3h37a1.5 1.5 0 1 0 0-3h-37z"
-      />
-    </svg>
+    <div class="navMenuBtn" on:click={() => (navOpen = !navOpen)}>
+      <svg fill="currentColor" viewBox="0 0 48 48" height="24" width="24">
+        <path
+          d="M5.5 9a1.5 1.5 0 1 0 0 3h37a1.5 1.5 0 1 0 0-3h-37zm0 13.5a1.5 1.5 0 1 0 0 3h37a1.5 1.5 0 1 0 0-3h-37zm0 13.5a1.5 1.5 0 1 0 0 3h37a1.5 1.5 0 1 0 0-3h-37z"
+        />
+      </svg>
+    </div>
   </div>
 </div>
 
 <style>
   .settings {
     background: var(--mica);
-    padding-left: 300px;
     position: absolute;
     inset: 10%;
     border-radius: 8px;
     overflow: hidden;
     resize: both;
+
+    min-width: 720px;
+    container-type: inline-size;
+    container-name: settings;
   }
+  @supports (container-type: inline-size) {
+    .settingsApp {
+      min-width: 360px;
+    }
+  }
+  .mainApp {
+    padding-left: 300px;
+    position: relative;
+    height: calc(100% - 36px);
+  }
+
   nav {
     height: 100%;
     left: 0;
@@ -506,7 +534,9 @@
   .navMenuBtn {
     display: none;
   }
-  @media (max-width: 800px) {
+
+  /* unable to use container queries due to https://github.com/sveltejs/svelte/issues/6969 */
+  /* @container settings (max-width: 800px) {
     .navMenuBtn {
       border-radius: 6px;
       display: flex;
@@ -524,7 +554,7 @@
     .navMenuBtn:active svg {
       transform: scaleX(0.67);
     }
-    .settings {
+    .mainApp {
       padding-left: 0;
     }
     nav {
@@ -535,7 +565,7 @@
     nav.navOpen {
       transform: translateX(0);
     }
-  }
+  } */
   @media (prefers-color-scheme: dark) {
     main .tilesCont .tile {
       background: hsla(0, 0%, 100%, 0.05);

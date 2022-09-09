@@ -1,6 +1,7 @@
 <script>
   import { TextBox } from "fluent-svelte";
   import { fly } from "svelte/transition";
+  import { activeThing, openedApps } from "../store";
 
   const topApp = [
     "Settings",
@@ -9,6 +10,16 @@
     "File Explorer",
     "Microsoft Store",
   ];
+
+  const toggleOpenApp = (app) => {
+    if ($openedApps.includes(app)) {
+      $activeThing = "";
+      $openedApps = $openedApps.filter((oa) => oa !== app);
+    } else {
+      $activeThing = app;
+      $openedApps = [...$openedApps, app];
+    }
+  };
 </script>
 
 <div
@@ -28,7 +39,7 @@
   <h4>Top apps</h4>
   <div class="topAppGrid">
     {#each topApp as app}
-      <div class="topApp hvrLight">
+      <div class="topApp hvrBgLight" on:click={() => toggleOpenApp(app)}>
         <img src="img/icon/{app}.png" alt="" height="32" width="32" />
         {app}
       </div>
@@ -37,19 +48,19 @@
 
   <h4>Quick searches</h4>
   <div class="searchTileCont">
-    <div class="searchTile hvrLight">
+    <div class="searchTile hvrBgLight">
       <img src="" alt="" height="20" width="20" />
       Today in history
     </div>
-    <div class="searchTile hvrLight">
+    <div class="searchTile hvrBgLight">
       <img src="" alt="" height="20" width="20" />
       Markets today
     </div>
-    <div class="searchTile hvrLight">
+    <div class="searchTile hvrBgLight">
       <img src="" alt="" height="20" width="20" />
       Translate
     </div>
-    <div class="searchTile hvrLight">
+    <div class="searchTile hvrBgLight">
       <img src="" alt="" height="20" width="20" />
       Currency converter
     </div>
