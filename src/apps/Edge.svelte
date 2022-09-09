@@ -1,6 +1,8 @@
 <script>
+  import { draggable } from "@neodrag/svelte";
   import { IconButton } from "fluent-svelte";
   import { scale } from "svelte/transition";
+  import Toolbar from "../components/shared/Toolbar.svelte";
 
   let value;
   let address = "https://www.google.com/?igu=1";
@@ -33,7 +35,7 @@
     {
       title: "GitHub",
       image: "https://github.com/favicon.ico",
-      link: "https://github.com/yashash1511",
+      link: "https://github.com/yashash-pugalia",
       external: true,
     },
     {
@@ -44,49 +46,85 @@
     },
     {
       title: "Yashash",
-      image: "https://yashash.is-a.dev/favicon.webp",
-      link: "https://yashash.is-a.dev",
+      image: "https://yashash-pugalia.github.io/favicon.webp",
+      link: "https://yashash-pugalia.github.io",
     },
   ];
 </script>
 
-<div class="edge activeShadow" transition:scale={{ duration: 200 }}>
-  <div class="topBar">
-    <div class="addressBar">
-      <IconButton>&larr;</IconButton>
-      <IconButton>&rarr;</IconButton>
-      <IconButton>&#10227;</IconButton>
-      <input
-        bind:value
-        type="text"
-        on:keydown={searcher}
-        placeholder="Search or enter web address"
-      />
-      <IconButton>&#9711;</IconButton>
-      <IconButton>•••</IconButton>
+<div
+  class="edge activeShadow"
+  use:draggable={{
+    handle: ".mainToolbar",
+  }}
+  transition:scale={{ duration: 200 }}
+>
+  <Toolbar appName="Microsoft Edge" />
+  <div class="mainApp">
+    <div class="topBar">
+      <div class="addressBar">
+        <IconButton>
+          <img
+            class="icon"
+            src="img/icon/ui/arrowLeft.svg"
+            height="20"
+            width="20"
+            alt=""
+          />
+        </IconButton>
+        <IconButton>
+          <img
+            class="icon"
+            src="img/icon/ui/arrowClockwise.svg"
+            height="20"
+            width="20"
+            alt=""
+          />
+        </IconButton>
+        <input
+          bind:value
+          type="text"
+          on:keydown={searcher}
+          placeholder="Search or enter web address"
+        />
+        <IconButton>
+          <img
+            class="icon"
+            src="img/apps/settings/defAccount.webp"
+            height="20"
+            width="20"
+            alt=""
+          />
+        </IconButton>
+        <IconButton>•••</IconButton>
+      </div>
+      <div class="bookmarksBar">
+        {#each bookmarks as { title, image, link, external }}
+          {#if external}
+            <a
+              href={link}
+              class="bookmark hvrBgDark"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={image} alt={title} height="20" width="20" />
+              <p>{title}</p>
+            </a>
+          {:else}
+            <div
+              class="bookmark hvrBgDark"
+              on:click={() => setSite(link)}
+              on:keypress={() => setSite(link)}
+            >
+              <img src={image} alt={title} height="20" width="20" />
+              <p>{title}</p>
+            </div>
+          {/if}
+        {/each}
+      </div>
     </div>
-    <div class="bookmarksBar">
-      {#each bookmarks as { title, image, link, external }}
-        {#if external}
-          <a
-            href={link}
-            class="bookmark hvrDark"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src={image} alt={title} height="20" width="20" />
-            <p>{title}</p>
-          </a>
-        {:else}
-          <div class="bookmark hvrDark" on:click={() => setSite(link)}>
-            <img src={image} alt={title} height="20" width="20" />
-            <p>{title}</p>
-          </div>
-        {/if}
-      {/each}
-    </div>
+    <iframe title="broswer iframe" src={address} frameborder="0" />
   </div>
-  <iframe title="broswer iframe" src={address} frameborder="0" />
 </div>
 
 <style>
@@ -98,8 +136,13 @@
     border-radius: 8px;
     overflow: hidden;
     resize: both;
+  }
+  .mainApp {
     display: flex;
     flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 36px);
   }
 
   .topBar {

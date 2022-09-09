@@ -1,7 +1,7 @@
 <script>
-  import { Button, TextBox } from "fluent-svelte";
+  import { Button, MenuFlyout, MenuFlyoutItem, TextBox } from "fluent-svelte";
   import { fly } from "svelte/transition";
-  import { activeThing, apps } from "../store";
+  import { activeThing, appList, openedApps } from "../store";
 
   let allApps = false;
 
@@ -13,6 +13,16 @@
     "Settings",
     "Terminal",
   ];
+
+  const toggleOpenApp = (app) => {
+    if ($openedApps.includes(app)) {
+      $activeThing = "";
+      $openedApps = $openedApps.filter((oa) => oa !== app);
+    } else {
+      $activeThing = app;
+      $openedApps = [...$openedApps, app];
+    }
+  };
 </script>
 
 <div
@@ -36,14 +46,13 @@
             <Button on:click={() => (allApps = true)}>All Apps &gt;</Button>
           </div>
           <div class="pinAppsGrid">
-            {#each $apps as app}
-              <div class="pnApp hvrLight">
-                <img
-                  src="img/icon/{app}.png"
-                  alt=""
-                  height="32"
-                  width="32"
-                />
+            {#each $appList as app}
+              <div
+                class="pnApp hvrBgLight"
+                on:click={() => toggleOpenApp(app)}
+                on:keypress={() => toggleOpenApp(app)}
+              >
+                <img src="img/icon/{app}.png" alt="" height="32" width="32" />
                 {app}
               </div>
             {/each}
@@ -55,13 +64,12 @@
           </div>
           <div class="recAppsGrid">
             {#each recApp as app}
-              <div class="recApp hvrLight">
-                <img
-                  src="img/icon/{app}.png"
-                  alt=""
-                  height="32"
-                  width="32"
-                />
+              <div
+                class="recApp hvrBgLight"
+                on:click={() => toggleOpenApp(app)}
+                on:keypress={() => toggleOpenApp(app)}
+              >
+                <img src="img/icon/{app}.png" alt="" height="32" width="32" />
                 {app}
               </div>
             {/each}
@@ -79,8 +87,12 @@
           <Button on:click={() => (allApps = false)}>&lt; Back</Button>
         </div>
         <div class="appList">
-          {#each $apps as app}
-            <div class="allApp hvrLight">
+          {#each $appList as app}
+            <div
+              class="allApp hvrBgLight"
+              on:click={() => toggleOpenApp(app)}
+              on:keypress={() => toggleOpenApp(app)}
+            >
               <img src="img/icon/{app}.png" alt="" height="24" width="24" />
               {app}
             </div>
@@ -90,8 +102,93 @@
     {/if}
   </div>
   <div class="bottomBar">
-    <span class="hvrLight">Yashash</span>
-    <span class="hvrLight">powerBtn</span>
+    <MenuFlyout>
+      <div class="hvrBgLight flyoutBtn">
+        <img
+          class="mr-2"
+          src="img/apps/settings/defAccount.webp"
+          height="32"
+          width="32"
+          alt=""
+        />
+        Yashash
+      </div>
+      <svelte:fragment slot="flyout">
+        <MenuFlyoutItem>
+          <img
+            class="icon mr-2"
+            src="img/icon/ui/person.svg"
+            height="20"
+            width="20"
+            alt=""
+          />
+          Change account settings
+        </MenuFlyoutItem>
+        <MenuFlyoutItem>
+          <img
+            class="icon mr-2"
+            src="img/icon/ui/lock.svg"
+            height="20"
+            width="20"
+            alt=""
+          />
+          Lock
+        </MenuFlyoutItem>
+        <MenuFlyoutItem>
+          <img
+            class="icon mr-2"
+            src="img/icon/ui/signOut.svg"
+            height="20"
+            width="20"
+            alt=""
+          />
+          Sign Out
+        </MenuFlyoutItem>
+      </svelte:fragment>
+    </MenuFlyout>
+    <MenuFlyout>
+      <div class="hvrBgLight flyoutBtn2">
+        <img
+          class="icon"
+          src="img/icon/ui/powerButton.svg"
+          height="20"
+          width="20"
+          alt=""
+        />
+      </div>
+      <svelte:fragment slot="flyout">
+        <MenuFlyoutItem>
+          <img
+            class="icon mr-2"
+            src="img/icon/ui/moon.svg"
+            height="18"
+            width="18"
+            alt=""
+          />
+          Sleep
+        </MenuFlyoutItem>
+        <MenuFlyoutItem>
+          <img
+            class="icon mr-2"
+            src="img/icon/ui/powerButton.svg"
+            height="18"
+            width="18"
+            alt=""
+          />
+          Shut Down
+        </MenuFlyoutItem>
+        <MenuFlyoutItem>
+          <img
+            class="icon mr-2"
+            src="img/icon/ui/arrowAntiClockwise.svg"
+            height="18"
+            width="18"
+            alt=""
+          />
+          Restart
+        </MenuFlyoutItem>
+      </svelte:fragment>
+    </MenuFlyout>
   </div>
 </div>
 
@@ -103,7 +200,6 @@
     width: 640px;
     height: min(100% - 1.5rem, 720px);
     border-radius: 8px;
-    overflow: hidden;
     background: rgb(var(--bg2) / 85%);
     backdrop-filter: blur(1.5rem);
   }
@@ -115,6 +211,7 @@
     background: rgb(255 255 255 / 25%);
     padding: 2rem 2rem 0;
     height: min(100% - 64px, 656px);
+    overflow: hidden;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -150,6 +247,10 @@
   }
   .pnApp img {
     margin-bottom: 4px;
+    transition: all 150ms;
+  }
+  .pnApp:active img {
+    transform: scale(75%);
   }
 
   .recAppsGrid {
@@ -196,6 +297,7 @@
     overflow-y: overlay;
     height: min(100vh - 282px, 510px);
     margin-right: -2rem;
+    padding-bottom: 2rem;
   }
   .allApp {
     display: flex;
@@ -216,5 +318,18 @@
     justify-content: space-between;
     align-items: center;
     height: 64px;
+  }
+
+  .flyoutBtn {
+    display: flex;
+    gap: 4px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    align-items: center;
+  }
+
+  .flyoutBtn2 {
+    padding: 8px;
+    border-radius: 4px;
   }
 </style>

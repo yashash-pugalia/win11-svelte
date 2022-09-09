@@ -1,28 +1,44 @@
 <script>
-  import { activeThing, date, openedApps } from "../store";
-  import Battery from "./shared/Battery.svelte";
-  import Speaker from "./shared/Speaker.svelte";
+  import Battery from "./components/shared/Battery.svelte";
+  import Speaker from "./components/shared/Speaker.svelte";
+  import { activeThing, date, openedApps } from "./store";
 
   const toggleActiveThing = (e) => ($activeThing = $activeThing === e ? "" : e);
 
-  // thanks a lot posandu
   const toggleOpenApp = (app) => {
     if ($openedApps.includes(app)) {
+      $activeThing = "";
       $openedApps = $openedApps.filter((oa) => oa !== app);
     } else {
+      $activeThing = app;
       $openedApps = [...$openedApps, app];
     }
   };
 
-  const taskApps = ["File Explorer", "Microsoft Edge", "Settings"];
+  const taskApps = [
+    "File Explorer",
+    "Microsoft Edge",
+    "Microsoft Store",
+    "Settings",
+  ];
 </script>
 
 <div class="taskbar">
   <div class="center">
-    <div class="taskIcon hvrLight" on:click={() => toggleActiveThing("Start")}>
+    <div
+      class="taskIcon hvrBgLight"
+      class:bgLight={$activeThing === "Start"}
+      on:click={() => toggleActiveThing("Start")}
+      on:keypress={() => toggleActiveThing("Start")}
+    >
       <img src="img/icon/Start.png" alt="Start" height="24" width="24" />
     </div>
-    <div class="taskIcon hvrLight" on:click={() => toggleActiveThing("Search")}>
+    <div
+      class="taskIcon hvrBgLight"
+      class:bgLight={$activeThing === "Search"}
+      on:click={() => toggleActiveThing("Search")}
+      on:keypress={() => toggleActiveThing("Search")}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="-2 -1 26 26"
@@ -40,7 +56,12 @@
         </g>
       </svg>
     </div>
-    <div class="taskIcon hvrLight">
+    <div
+      class="taskIcon hvrBgLight"
+      class:bgLight={$activeThing === "Task View"}
+      on:click={() => toggleActiveThing("Task View")}
+      on:keypress={() => toggleActiveThing("Task View")}
+    >
       <img
         src="img/icon/Task View.png"
         alt="Task View"
@@ -49,22 +70,48 @@
       />
     </div>
     <div
-      class="taskIcon widgetBtn hvrLight"
+      class="taskIcon widgetBtn hvrBgLight"
       on:click={() => toggleActiveThing("Widgets")}
+      on:keypress={() => toggleActiveThing("Widgets")}
     >
       <img src="img/icon/Widgets.png" alt="Widgets" height="24" width="24" />
     </div>
+
     {#each taskApps as app}
-      <div class="taskIcon hvrLight" on:click={() => toggleOpenApp(app)}>
+      <div
+        class="taskIcon hvrBgLight"
+        class:openedApp={$openedApps.includes(app)}
+        class:bgLight={app === $activeThing}
+        class:activeApp={app === $activeThing}
+        on:click={() => toggleOpenApp(app)}
+        on:keypress={() => toggleOpenApp(app)}
+      >
         <img src="img/icon/{app}.png" alt={app} height="24" width="24" />
       </div>
+    {/each}
+
+    {#each $openedApps as app}
+      {#if !taskApps.includes(app)}
+        <div
+          class="taskIcon hvrBgLight"
+          class:openedApp={$openedApps.includes(app)}
+          class:bgLight={app === $activeThing}
+          class:activeApp={app === $activeThing}
+          on:click={() => toggleOpenApp(app)}
+          on:keypress={() => toggleOpenApp(app)}
+        >
+          <img src="img/icon/{app}.png" alt={app} height="24" width="24" />
+        </div>
+      {/if}
     {/each}
   </div>
 
   <div class="right">
     <div
-      class="actionCenterBtn hvrLight"
+      class="actionCenterBtn hvrBgLight"
+      class:bgLight={$activeThing === "ActionCenter"}
       on:click={() => toggleActiveThing("ActionCenter")}
+      on:keypress={() => toggleActiveThing("ActionCenter")}
     >
       <img
         class="icon"
@@ -76,7 +123,12 @@
       <Speaker />
       <Battery />
     </div>
-    <div class="date hvrLight" on:click={() => toggleActiveThing("Calendar")}>
+    <div
+      class="date hvrBgLight"
+      class:bgLight={$activeThing === "Calendar"}
+      on:click={() => toggleActiveThing("Calendar")}
+      on:keypress={() => toggleActiveThing("Calendar")}
+    >
       <p>
         {$date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
       </p>
@@ -113,11 +165,6 @@
     gap: 4px;
   }
 
-  .widgetBtn {
-    position: absolute;
-    left: 10px;
-  }
-
   .taskIcon {
     display: flex;
     align-items: center;
@@ -125,15 +172,38 @@
     height: 40px;
     width: 40px;
     border-radius: 4px;
+    position: relative;
   }
-
   .taskIcon img,
   .taskIcon svg {
-    transition: all 150ms ease;
+    transition: all 150ms;
   }
   .taskIcon:active img,
   .taskIcon:active svg {
     transform: scale(75%);
+  }
+
+  .taskIcon::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    width: 0;
+    border-radius: 3px;
+    transition: all 200ms;
+  }
+  .taskIcon.openedApp::before {
+    width: 6px;
+    background: gray;
+  }
+  .taskIcon.activeApp::before {
+    width: 1rem;
+    background: rgb(var(--clrPrm));
+  }
+
+  .widgetBtn {
+    position: absolute;
+    left: 10px;
   }
 
   .right {

@@ -23,7 +23,12 @@
     <div class="btnCont">
       {#each items as { title, active }}
         <div class="btn">
-          <div class="btnIcon" class:active on:click={() => (active = !active)}>
+          <div
+            class="btnIcon"
+            class:active
+            on:click={() => (active = !active)}
+            on:keypress={() => (active = !active)}
+          >
             <!-- icon here -->
           </div>
           <div class="btnText">{title}</div>
