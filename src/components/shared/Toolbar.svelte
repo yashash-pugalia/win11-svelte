@@ -18,6 +18,10 @@
         $activeThing = "";
         $openedApps = $openedApps.filter((oa) => oa !== appName);
       }}
+      on:keypress={() => {
+        $activeThing = "";
+        $openedApps = $openedApps.filter((oa) => oa !== appName);
+      }}
     >
       x
     </div>
