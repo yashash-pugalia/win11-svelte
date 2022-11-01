@@ -47,7 +47,11 @@
           </div>
           <div class="pinAppsGrid">
             {#each $appList as app}
-              <div class="pnApp hvrBgLight" on:click={() => toggleOpenApp(app)}>
+              <div
+                class="pnApp hvrBgLight"
+                on:click={() => toggleOpenApp(app)}
+                on:keypress={() => toggleOpenApp(app)}
+              >
                 <img src="img/icon/{app}.png" alt="" height="32" width="32" />
                 {app}
               </div>
@@ -63,6 +67,7 @@
               <div
                 class="recApp hvrBgLight"
                 on:click={() => toggleOpenApp(app)}
+                on:keypress={() => toggleOpenApp(app)}
               >
                 <img src="img/icon/{app}.png" alt="" height="32" width="32" />
                 {app}
@@ -83,7 +88,11 @@
         </div>
         <div class="appList">
           {#each $appList as app}
-            <div class="allApp hvrBgLight" on:click={() => toggleOpenApp(app)}>
+            <div
+              class="allApp hvrBgLight"
+              on:click={() => toggleOpenApp(app)}
+              on:keypress={() => toggleOpenApp(app)}
+            >
               <img src="img/icon/{app}.png" alt="" height="24" width="24" />
               {app}
             </div>

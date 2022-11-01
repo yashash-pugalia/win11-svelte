@@ -35,7 +35,7 @@
     {
       title: "GitHub",
       image: "https://github.com/favicon.ico",
-      link: "https://github.com/yashash1511",
+      link: "https://github.com/yashash-pugalia",
       external: true,
     },
     {
@@ -46,8 +46,8 @@
     },
     {
       title: "Yashash",
-      image: "https://yashash1511.github.io/favicon.webp",
-      link: "https://yashash1511.github.io",
+      image: "https://yashash-pugalia.github.io/favicon.webp",
+      link: "https://yashash-pugalia.github.io",
     },
   ];
 </script>
@@ -111,7 +111,11 @@
               <p>{title}</p>
             </a>
           {:else}
-            <div class="bookmark hvrBgDark" on:click={() => setSite(link)}>
+            <div
+              class="bookmark hvrBgDark"
+              on:click={() => setSite(link)}
+              on:keypress={() => setSite(link)}
+            >
               <img src={image} alt={title} height="20" width="20" />
               <p>{title}</p>
             </div>
