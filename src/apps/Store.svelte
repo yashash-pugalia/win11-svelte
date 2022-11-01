@@ -21,6 +21,7 @@
         <div
           class="navBtn hvrBgDark"
           on:click={() => (tab = e)}
+          on:keypress={() => (tab = e)}
           class:active={tab === e}
         >
           {e}

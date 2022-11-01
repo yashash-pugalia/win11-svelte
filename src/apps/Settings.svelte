@@ -1,6 +1,6 @@
 <script>
   import { draggable } from "@neodrag/svelte";
-  import { Button, ListItem, TextBox } from "fluent-svelte";
+  import { Button, TextBox } from "fluent-svelte";
   import { scale } from "svelte/transition";
   import Toolbar from "../components/shared/Toolbar.svelte";
   import { themes } from "../store";
@@ -69,6 +69,7 @@
                     <div
                       class="column"
                       on:click={() => setTab("Windows Update")}
+                      on:keypress={() => setTab("Windows Update")}
                     >
                       <img
                         src="img/apps/settings/Windows Update.webp"
@@ -182,7 +183,11 @@
 
     <nav class:navOpen>
       <div class="nav_top">
-        <div class="account" on:click={() => setTab("Accounts")}>
+        <div
+          class="account"
+          on:click={() => setTab("Accounts")}
+          on:keypress={() => setTab("Accounts")}
+        >
           <img
             src="img/apps/settings/defAccount.webp"
             alt=""
@@ -200,20 +205,30 @@
       </div>
       <div class="nav_bottom">
         {#each Object.keys(data) as e}
-          <ListItem selected={tab === e} on:click={() => setTab(e)}>
+          <div
+            class="navLink"
+            class:selected={tab === e}
+            on:click={() => setTab(e)}
+            on:keypress={() => setTab(e)}
+          >
             <img
               src="img/apps/settings/{e}.webp"
               alt=""
-              height="16"
-              width="16"
+              height={16}
+              width={16}
             />
             {e}
-          </ListItem>
+          </div>
         {/each}
+        <div class="marker" />
       </div>
     </nav>
 
-    <div class="navMenuBtn" on:click={() => (navOpen = !navOpen)}>
+    <div
+      class="navMenuBtn"
+      on:click={() => (navOpen = !navOpen)}
+      on:keypress={() => (navOpen = !navOpen)}
+    >
       <svg fill="currentColor" viewBox="0 0 48 48" height="24" width="24">
         <path
           d="M5.5 9a1.5 1.5 0 1 0 0 3h37a1.5 1.5 0 1 0 0-3h-37zm0 13.5a1.5 1.5 0 1 0 0 3h37a1.5 1.5 0 1 0 0-3h-37zm0 13.5a1.5 1.5 0 1 0 0 3h37a1.5 1.5 0 1 0 0-3h-37z"
@@ -223,7 +238,7 @@
   </div>
 </div>
 
-<style>
+<style lang="scss">
   .settings {
     background: var(--mica);
     position: absolute;
@@ -233,8 +248,8 @@
     resize: both;
 
     min-width: 720px;
-    container-type: inline-size;
-    container-name: settings;
+    // container-type: inline-size;
+    // container-name: settings;
   }
   @supports (container-type: inline-size) {
     .settingsApp {
@@ -288,6 +303,45 @@
   .nav_bottom img {
     margin-right: 12px;
   }
+  .navLink {
+    position: relative;
+    overflow: hidden;
+    height: 36px;
+    padding-left: 7px;
+    margin: 2px 4px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    &:hover,
+    &.selected {
+      background: rgb(var(--clr) / 5%);
+    }
+
+    img {
+      margin: 0 10.5px 0 7px;
+    }
+  }
+
+  .marker {
+    position: absolute;
+    background: rgb(var(--clrPrm));
+    height: 16px;
+    width: 3px;
+    border-radius: 3px;
+    top: 0;
+    left: 16px;
+    transform: translateY(12px);
+    transition: transform 250ms cubic-bezier(1, 0, 0, 1);
+  }
+
+  @for $i from 1 to 12 {
+    .navLink:nth-child(#{$i}).selected ~ .marker {
+      transform: translateY(((40 * ($i - 1)) + 12) + px);
+    }
+  }
+
   main {
     overflow: hidden;
     height: 100%;

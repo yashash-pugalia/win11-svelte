@@ -1,7 +1,7 @@
 # Windows 11 in Svelte
 
-[![Follow me](https://img.shields.io/github/followers/yashash1511?label=follow%20me&style=social)](https://github.com/yashash1511)
-[![Build & Deploy](https://github.com/yashash1511/Win11-Svelte/actions/workflows/Build-Deploy.yml/badge.svg)](https://github.com/yashash1511/Win11-Svelte/actions/workflows/Build-Deploy.yml)
+[![Follow me](https://img.shields.io/github/followers/yashash-pugalia?label=follow%20me&style=social)](https://github.com/yashash-pugalia)
+[![Build & Deploy](https://github.com/yashash-pugalia/Win11-Svelte/actions/workflows/Build-Deploy.yml/badge.svg)](https://github.com/yashash-pugalia/Win11-Svelte/actions/workflows/Build-Deploy.yml)
 
 This open source project is made in the hope to replicate the Windows 11 desktop experience on web.
 
@@ -20,7 +20,7 @@ This open source project is made in the hope to replicate the Windows 11 desktop
 - [x] Dark mode
 - [x] Responsiveness
 
-📑 [Suggest More](https://github.com/yashash1511/win11Svelte/issues/new)
+📑 [Suggest More](https://github.com/yashash-pugalia/win11Svelte/issues/new)
 
 ## 📚 Tech Stack
 
@@ -50,9 +50,9 @@ This open source project is made in the hope to replicate the Windows 11 desktop
 
 ### [⏫ Scroll to the ⭐️ button](#start-of-content)
 
-If you believe this project has potential, feel free to **star this repo** just like many [amazing people](https://github.com/yashash1511/win11Svelte/stargazers) have 👇
+If you believe this project has potential, feel free to **star this repo** just like many [amazing people](https://github.com/yashash-pugalia/win11Svelte/stargazers) have 👇
 
-![](https://user-images.githubusercontent.com/89068816/189519311-f84b017d-41ce-4e93-adc1-db43b8539de8.png)
+https://user-images.githubusercontent.com/89068816/200654922-4aac27d9-1084-4c68-91f2-85a2990f1107.mp4
 
 ## 🧑‍⚖️ License
 
