@@ -29,6 +29,7 @@
       class="taskIcon hvrBgLight"
       class:bgLight={$activeThing === "Start"}
       on:click={() => toggleActiveThing("Start")}
+      on:keypress={() => toggleActiveThing("Start")}
     >
       <img src="img/icon/Start.png" alt="Start" height="24" width="24" />
     </div>
@@ -36,6 +37,7 @@
       class="taskIcon hvrBgLight"
       class:bgLight={$activeThing === "Search"}
       on:click={() => toggleActiveThing("Search")}
+      on:keypress={() => toggleActiveThing("Search")}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -58,6 +60,7 @@
       class="taskIcon hvrBgLight"
       class:bgLight={$activeThing === "Task View"}
       on:click={() => toggleActiveThing("Task View")}
+      on:keypress={() => toggleActiveThing("Task View")}
     >
       <img
         src="img/icon/Task View.png"
@@ -69,6 +72,7 @@
     <div
       class="taskIcon widgetBtn hvrBgLight"
       on:click={() => toggleActiveThing("Widgets")}
+      on:keypress={() => toggleActiveThing("Widgets")}
     >
       <img src="img/icon/Widgets.png" alt="Widgets" height="24" width="24" />
     </div>
@@ -80,6 +84,7 @@
         class:bgLight={app === $activeThing}
         class:activeApp={app === $activeThing}
         on:click={() => toggleOpenApp(app)}
+        on:keypress={() => toggleOpenApp(app)}
       >
         <img src="img/icon/{app}.png" alt={app} height="24" width="24" />
       </div>
@@ -93,6 +98,7 @@
           class:bgLight={app === $activeThing}
           class:activeApp={app === $activeThing}
           on:click={() => toggleOpenApp(app)}
+          on:keypress={() => toggleOpenApp(app)}
         >
           <img src="img/icon/{app}.png" alt={app} height="24" width="24" />
         </div>
@@ -105,6 +111,7 @@
       class="actionCenterBtn hvrBgLight"
       class:bgLight={$activeThing === "ActionCenter"}
       on:click={() => toggleActiveThing("ActionCenter")}
+      on:keypress={() => toggleActiveThing("ActionCenter")}
     >
       <img
         class="icon"
@@ -120,6 +127,7 @@
       class="date hvrBgLight"
       class:bgLight={$activeThing === "Calendar"}
       on:click={() => toggleActiveThing("Calendar")}
+      on:keypress={() => toggleActiveThing("Calendar")}
     >
       <p>
         {$date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}

@@ -5,20 +5,8 @@ on:
     branches: [main]
   workflow_dispatch:
 
-permissions:
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
 jobs:
   Build-Deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
 
     steps:
@@ -31,9 +19,10 @@ jobs:
 
       - run: npm ci && npm run build
 
-      - uses: actions/upload-pages-artifact@v1
+      - uses: peaceiris/actions-gh-pages@v3
         with:
-          path: dist
-
-      - id: deployment
-        uses: actions/deploy-pages@v1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          keep_files: true
+          publish_dir: dist
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com

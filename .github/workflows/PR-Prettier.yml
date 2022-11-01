@@ -1,0 +1,31 @@
+name: PR Prettier
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+permissions: write-all
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+
+      - name: Magic
+        run: |
+          npm ci
+          npx prettier --write .
+          git config --global user.email github-actions[bot]@users.noreply.github.com
+          git config --global user.name github-actions[bot]
+          git add .
+          git commit -m "Prettied PR #${{ github.event.pull_request.number }}" -m "skip actions"
+          git push

@@ -111,7 +111,11 @@
               <p>{title}</p>
             </a>
           {:else}
-            <div class="bookmark hvrBgDark" on:click={() => setSite(link)}>
+            <div
+              class="bookmark hvrBgDark"
+              on:click={() => setSite(link)}
+              on:keypress={() => setSite(link)}
+            >
               <img src={image} alt={title} height="20" width="20" />
               <p>{title}</p>
             </div>

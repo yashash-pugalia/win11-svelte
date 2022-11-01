@@ -39,7 +39,11 @@
   <h4>Top apps</h4>
   <div class="topAppGrid">
     {#each topApp as app}
-      <div class="topApp hvrBgLight" on:click={() => toggleOpenApp(app)}>
+      <div
+        class="topApp hvrBgLight"
+        on:click={() => toggleOpenApp(app)}
+        on:keypress={() => toggleOpenApp(app)}
+      >
         <img src="img/icon/{app}.png" alt="" height="32" width="32" />
         {app}
       </div>

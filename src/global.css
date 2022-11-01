@@ -86,8 +86,9 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   border: 4px solid transparent;
 }
-::-webkit-scrollbar-button:single-button {
-  height: 10px;
+::-webkit-scrollbar-button {
+  height: 5px;
+  width: 5px;
 }
 :hover::-webkit-scrollbar {
   display: block;
