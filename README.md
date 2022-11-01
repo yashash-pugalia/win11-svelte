@@ -52,7 +52,7 @@ This open source project is made in the hope to replicate the Windows 11 desktop
 
 If you believe this project has potential, feel free to **star this repo** just like many [amazing people](https://github.com/yashash1511/win11Svelte/stargazers) have 👇
 
-![](https://user-images.githubusercontent.com/89068816/189519311-f84b017d-41ce-4e93-adc1-db43b8539de8.png)
+https://user-images.githubusercontent.com/89068816/199261016-c89c2859-8912-4ccd-b896-a76f2b9ca6b1.mp4
 
 ## 🧑‍⚖️ License
 
