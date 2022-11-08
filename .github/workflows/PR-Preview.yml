@@ -34,6 +34,7 @@ jobs:
         with:
           publish_dir: dist
           destination_dir: pr/${{ github.event.pull_request.number }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: comment Preview Ready
         uses: marocchino/sticky-pull-request-comment@v2
