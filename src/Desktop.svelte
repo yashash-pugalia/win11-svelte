@@ -1,5 +1,18 @@
 <script>
   import { draggable } from "@neodrag/svelte";
+  import Calculator from "./apps/Calculator.svelte";
+  import Camera from "./apps/Camera.svelte";
+  import Edge from "./apps/Edge.svelte";
+  import Explorer from "./apps/Explorer.svelte";
+  import Notepad from "./apps/Notepad.svelte";
+  import Settings from "./apps/Settings.svelte";
+  import Store from "./apps/Store.svelte";
+  import VsCode from "./apps/VSCode.svelte";
+  import ActionCenter from "./components/ActionCenter.svelte";
+  import Calendar from "./components/Calendar.svelte";
+  import Search from "./components/Search.svelte";
+  import Start from "./components/Start.svelte";
+  import Widgets from "./components/Widgets.svelte";
   import { activeThing, brightness, openedApps } from "./store";
 
   const dskApps = ["Recycle Bin", "Microsoft Edge", "VS Code"];
@@ -12,6 +25,25 @@
       $activeThing = app;
       $openedApps = [...$openedApps, app];
     }
+  };
+
+  const openedAppcomponent = {
+    Calculator,
+    Camera,
+    "File Explorer": Explorer,
+    "Microsoft Edge": Edge,
+    "Microsoft Store": Store,
+    Notepad,
+    Settings,
+    "VS Code": VsCode
+  };
+
+  const activeThingComponent = {
+      ActionCenter,
+      Calendar,
+      Search,
+      Start,
+      Widgets
   };
 </script>
 
@@ -31,70 +63,11 @@
 
   <div class="apps">
     {#each $openedApps as e}
-      {#if e === "Calculator"}
-        {#await import("./apps/Calculator.svelte") then { default: Calculator }}
-          <Calculator />
-        {/await}
-      {/if}
-      {#if e === "Camera"}
-        {#await import("./apps/Camera.svelte") then { default: Camera }}
-          <Camera />
-        {/await}
-      {/if}
-      {#if e === "File Explorer"}
-        {#await import("./apps/Explorer.svelte") then { default: Camera }}
-          <Camera />
-        {/await}
-      {/if}
-      {#if e === "Microsoft Edge"}
-        {#await import("./apps/Edge.svelte") then { default: Edge }}
-          <Edge />
-        {/await}
-      {/if}
-      {#if e === "Microsoft Store"}
-        {#await import("./apps/Store.svelte") then { default: Store }}
-          <Store />
-        {/await}
-      {/if}
-      {#if e === "Notepad"}
-        {#await import("./apps/Notepad.svelte") then { default: Notepad }}
-          <Notepad />
-        {/await}
-      {/if}
-      {#if e === "Settings"}
-        {#await import("./apps/Settings.svelte") then { default: Settings }}
-          <Settings />
-        {/await}
-      {/if}
-      {#if e === "VS Code"}
-        {#await import("./apps/VSCode.svelte") then { default: VSCode }}
-          <VSCode />
-        {/await}
-      {/if}
+      <svelte:component this={openedAppcomponent[e]} />
     {/each}
   </div>
 
-  {#if $activeThing === "ActionCenter"}
-    {#await import("./components/ActionCenter.svelte") then { default: ActionCenter }}
-      <ActionCenter />
-    {/await}
-  {:else if $activeThing === "Calendar"}
-    {#await import("./components/Calendar.svelte") then { default: Calendar }}
-      <Calendar />
-    {/await}
-  {:else if $activeThing === "Search"}
-    {#await import("./components/Search.svelte") then { default: Search }}
-      <Search />
-    {/await}
-  {:else if $activeThing === "Start"}
-    {#await import("./components/Start.svelte") then { default: Start }}
-      <Start />
-    {/await}
-  {:else if $activeThing === "Widgets"}
-    {#await import("./components/Widgets.svelte") then { default: Widgets }}
-      <Widgets />
-    {/await}
-  {/if}
+  <svelte:component this={activeThingComponent[$activeThing]} />
 </div>
 
 <div
