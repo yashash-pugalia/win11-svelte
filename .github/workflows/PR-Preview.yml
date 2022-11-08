@@ -45,7 +45,7 @@ jobs:
             |-|-|
             | 🔨 Latest commit | ${{ github.event.pull_request.head.sha }} |
             | 🔍 Latest deploy log | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
-            | 😎 Deploy Preview | https://yashash1511.github.io/win11Svelte/pr/${{ github.event.pull_request.number }} |
+            | 😎 Deploy Preview | https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/pr/${{ github.event.pull_request.number }} |
 
       - if: ${{ failure() }}
         uses: marocchino/sticky-pull-request-comment@v2
