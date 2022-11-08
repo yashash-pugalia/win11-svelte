@@ -32,10 +32,8 @@ jobs:
 
       - uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.BOT }}
           publish_dir: dist
-          destination_dir: ${{ github.event.pull_request.number }}
-          external_repository: yashash1511/pr-preview
+          destination_dir: pr/${{ github.event.pull_request.number }}
 
       - name: comment Preview Ready
         uses: marocchino/sticky-pull-request-comment@v2
@@ -47,7 +45,7 @@ jobs:
             |-|-|
             | 🔨 Latest commit | ${{ github.event.pull_request.head.sha }} |
             | 🔍 Latest deploy log | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
-            | 😎 Deploy Preview | https://yashash1511.github.io/pr-preview/${{ github.event.pull_request.number }} |
+            | 😎 Deploy Preview | https://yashash1511.github.io/win11Svelte/pr/${{ github.event.pull_request.number }} |
 
       - if: ${{ failure() }}
         uses: marocchino/sticky-pull-request-comment@v2
