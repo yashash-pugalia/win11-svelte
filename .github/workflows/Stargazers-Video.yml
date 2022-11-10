@@ -1,67 +1,67 @@
 on:
-  workflow_dispatch:
-    inputs:
-      repoOrg:
-        description: Repo Org
-        required: true
-        default: yashash1511
-      repoName:
-        description: Repo Name
-        required: true
-        default: win11Svelte
-      starCount:
-        description: Star Count
-        required: true
-        default: 70
-      duration:
-        description: Duration (seconds)
-        required: false
-        default: 5
+    workflow_dispatch:
+        inputs:
+            repoOrg:
+                description: Repo Org
+                required: true
+                default: yashash1511
+            repoName:
+                description: Repo Name
+                required: true
+                default: win11Svelte
+            starCount:
+                description: Star Count
+                required: true
+                default: 70
+            duration:
+                description: Duration (seconds)
+                required: false
+                default: 5
 name: Render video
 jobs:
-  render:
-    name: Render video
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@main
-        with:
-          repository: pomber/stargazer
-      - name: Setup node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: 'npm'
-      - name: Install dependencies (ffmpeg and fonts)
-        run: |
-          sudo apt-get update -yqq
-          sudo apt-get install -yq --no-install-recommends \
-            ffmpeg \
-            fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji fonts-noto-mono
-      - name: Install dependencies (node modules)
-        run: npm i
-      - name: Inject configurations
-        run: echo $WORKFLOW_INPUT | tee input-props.json | jq -C '.'  # Inject to file, inspect to logs
-        env:
-          WORKFLOW_INPUT: ${{ toJson(github.event.inputs) }}
-      - name: Render video
-        run: npm run build -- --props="./input-props.json"
-        env:
-          REMOTION_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Upload video
-        uses: actions/upload-artifact@v3
-        with:
-          name: out.mp4
-          path: out.mp4
-      - name: Checkout
-        uses: actions/checkout@main
-      - run: rm -f out.mp4
-      - uses: actions/download-artifact@v3
-        with:
-          name: out.mp4
-      - run: |
-          git config --global user.email github-actions[bot]@users.noreply.github.com
-          git config --global user.name github-actions[bot]
-          git add .
-          git commit -m "Updated Stargazers Video"
-          git push
+    render:
+        name: Render video
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@main
+              with:
+                  repository: pomber/stargazer
+            - name: Setup node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+                  cache: 'npm'
+            - name: Install dependencies (ffmpeg and fonts)
+              run: |
+                  sudo apt-get update -yqq
+                  sudo apt-get install -yq --no-install-recommends \
+                    ffmpeg \
+                    fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji fonts-noto-mono
+            - name: Install dependencies (node modules)
+              run: npm i
+            - name: Inject configurations
+              run: echo $WORKFLOW_INPUT | tee input-props.json | jq -C '.' # Inject to file, inspect to logs
+              env:
+                  WORKFLOW_INPUT: ${{ toJson(github.event.inputs) }}
+            - name: Render video
+              run: npm run build -- --props="./input-props.json"
+              env:
+                  REMOTION_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: Upload video
+              uses: actions/upload-artifact@v3
+              with:
+                  name: out.mp4
+                  path: out.mp4
+            - name: Checkout
+              uses: actions/checkout@main
+            - run: rm -f out.mp4
+            - uses: actions/download-artifact@v3
+              with:
+                  name: out.mp4
+            - run: |
+                  git config --global user.email github-actions[bot]@users.noreply.github.com
+                  git config --global user.name github-actions[bot]
+                  git add .
+                  git commit -m "Updated Stargazers Video"
+                  git push

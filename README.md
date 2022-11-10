@@ -13,36 +13,36 @@ This open source project is made in the hope to replicate the Windows 11 desktop
 
 ## ✅ Features
 
-- [x] Desktop & Taskbar
-- [x] Action Center, Calendar, Search, Start & Widgets
-- [x] Calculator, Camera, Edge Browser, Notepad, Settings, VS Code
-- [x] Resize windows
-- [x] Dark mode
-- [x] Responsiveness
+-   [x] Desktop & Taskbar
+-   [x] Action Center, Calendar, Search, Start & Widgets
+-   [x] Calculator, Camera, Edge Browser, Notepad, Settings, VS Code
+-   [x] Resize windows
+-   [x] Dark mode
+-   [x] Responsiveness
 
 📑 [Suggest More](https://github.com/yashash1511/win11Svelte/issues/new)
 
 ## 📚 Tech Stack
 
-- 🔥**Svelte** - The most loved web framework.
-- ⚡**Vite** - Because it is lightning fast
-- 🌊**CSS + Tailwind** - To make it look beautiful.
-- 🌴**Fluent Svelte** - Component UI Library that emulates the look and feel of the Fluent Design System.
-- 👌**Fluent System Icons** - A collection of familiar, friendly and modern icons from Microsoft.
+-   🔥**Svelte** - The most loved web framework.
+-   ⚡**Vite** - Because it is lightning fast
+-   🌊**CSS + Tailwind** - To make it look beautiful.
+-   🌴**Fluent Svelte** - Component UI Library that emulates the look and feel of the Fluent Design System.
+-   👌**Fluent System Icons** - A collection of familiar, friendly and modern icons from Microsoft.
 
 ## 🤔 FAQ
 
-- Is this the full operating system?
-  - No, This is not a full operating system and It is also not affiliated to Microsoft in anyway.
-- Can I contribute?
-  - Yeah sure why not! Just open an issue, create a pull request
-- Where did you get the inspiration from, if you have?
-  - Blue edge's [win11React](https://github.com/blueedgetechno/win11React) & this youtube video by [CodeWithHarry](https://youtu.be/OtOmxa9UMe8)
+-   Is this the full operating system?
+    -   No, This is not a full operating system and It is also not affiliated to Microsoft in anyway.
+-   Can I contribute?
+    -   Yeah sure why not! Just open an issue, create a pull request
+-   Where did you get the inspiration from, if you have?
+    -   Blue edge's [win11React](https://github.com/blueedgetechno/win11React) & this youtube video by [CodeWithHarry](https://youtu.be/OtOmxa9UMe8)
 
 ## 👷 TODO
 
-- [ ] More working apps
-- [ ] Icons in Settings app (I need help with this)
+-   [ ] More working apps
+-   [ ] Icons in Settings app (I need help with this)
 
 ## 🌟 Star this project
 
