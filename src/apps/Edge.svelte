@@ -2,7 +2,7 @@
   import { draggable } from "@neodrag/svelte";
   import { IconButton } from "fluent-svelte";
   import { scale } from "svelte/transition";
-  import Toolbar from "../components/shared/Toolbar.svelte";
+  import Titlebar from "../components/shared/Titlebar.svelte";
 
   let value;
   let address = "https://www.google.com/?igu=1";
@@ -55,11 +55,11 @@
 <div
   class="edge activeShadow"
   use:draggable={{
-    handle: ".mainToolbar",
+    handle: ".title-bar",
   }}
   transition:scale={{ duration: 200 }}
 >
-  <Toolbar appName="Microsoft Edge" />
+  <Titlebar appName="Microsoft Edge" />
   <div class="mainApp">
     <div class="topBar">
       <div class="addressBar">

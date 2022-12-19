@@ -1,17 +1,17 @@
 <script>
   import { draggable } from "@neodrag/svelte";
   import { scale } from "svelte/transition";
-  import Toolbar from "../components/shared/Toolbar.svelte";
+  import Titlebar from "../components/shared/Titlebar.svelte";
 </script>
 
 <div
   class="calculator activeShadow"
   use:draggable={{
-    handle: ".mainToolbar",
+    handle: ".title-bar",
   }}
   transition:scale={{ duration: 200 }}
 >
-  <Toolbar appName="Calculator" />
+  <Titlebar appName="Calculator" />
   <div class="mainApp">
     <div class="calcType">Standard</div>
     <div class="valCont">0</div>
