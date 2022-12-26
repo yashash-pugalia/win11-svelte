@@ -1,17 +1,17 @@
 <script>
   import { draggable } from "@neodrag/svelte";
   import { scale } from "svelte/transition";
-  import Toolbar from "../components/shared/Toolbar.svelte";
+  import Titlebar from "../components/shared/Titlebar.svelte";
 </script>
 
 <div
   class="vscode activeShadow"
   use:draggable={{
-    handle: ".mainToolbar",
+    handle: ".title-bar",
   }}
   transition:scale={{ duration: 200 }}
 >
-  <Toolbar appName="VS Code" darkBg />
+  <Titlebar appName="VS Code" darkBg />
 
   <div class="mainApp">
     <iframe
