@@ -38,7 +38,6 @@ jobs:
           user_name: github-actions[bot]
           user_email: github-actions[bot]@users.noreply.github.com
 
-
       - name: comment Preview Ready
         uses: marocchino/sticky-pull-request-comment@v2
         with:
