@@ -2,7 +2,7 @@
   import { draggable } from "@neodrag/svelte";
   import { Button, TextBox } from "fluent-svelte";
   import { scale } from "svelte/transition";
-  import Toolbar from "../components/shared/Toolbar.svelte";
+  import Titlebar from "../components/shared/Titlebar.svelte";
   import { themes } from "../store";
   import data from "./settingsData.json";
 
@@ -18,11 +18,11 @@
 <div
   class="settings activeShadow"
   use:draggable={{
-    handle: ".mainToolbar",
+    handle: ".title-bar",
   }}
   transition:scale={{ duration: 200 }}
 >
-  <Toolbar appName="Settings" />
+  <Titlebar appName="Settings" canGoBack={ true } />
   <div class="mainApp">
     {#each Object.entries(data) as [i]}
       {#if tab === i}
