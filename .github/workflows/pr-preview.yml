@@ -1,6 +1,8 @@
 name: PR Preview
 
-on: pull_request
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
 
 permissions: write-all
 
