@@ -29,7 +29,7 @@ jobs:
           cache: npm
 
       - if: ${{ github.event.action == 'opened'}}
-        run: gh repo create prview/w11-${{ github.event.pull_request.number }} --public
+        run: gh repo create prview/${{ github.event.repository.name }}-${{ github.event.pull_request.number }} --public
         env:
           GITHUB_TOKEN: ${{ secrets.BOT }}
 
@@ -39,7 +39,7 @@ jobs:
         with:
           personal_token: ${{ secrets.BOT }}
           publish_dir: dist
-          external_repository: prview/w11-${{ github.event.pull_request.number }}
+          external_repository: prview/${{ github.event.repository.name }}-${{ github.event.pull_request.number }}
 
       - name: Sleep
         run: sleep 30s
