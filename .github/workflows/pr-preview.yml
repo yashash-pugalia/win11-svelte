@@ -1,6 +1,6 @@
 name: PR Preview
 
-on: pull_request_target
+on: pull_request
 
 permissions: write-all
 
@@ -39,6 +39,8 @@ jobs:
         with:
           personal_token: ${{ secrets.BOT }}
           publish_dir: dist
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
           external_repository: prview/${{ github.event.repository.name }}-${{ github.event.pull_request.number }}
 
       - name: Sleep
@@ -54,7 +56,7 @@ jobs:
             | **Commit:** | ${{ github.event.pull_request.head.sha }} |
             | :-- | :-- |
             | **Status:** | ✅ Success |
-            | **Preview:** | https://prview.github.io/w11-${{ github.event.pull_request.number }} |
+            | **Preview:** | https://prview.github.io/${{ github.event.repository.name }}-${{ github.event.pull_request.number }} |
             | **Deploy Log:** | ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} |
 
       - if: ${{ failure() }}
