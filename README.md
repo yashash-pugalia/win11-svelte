@@ -41,7 +41,7 @@ This open source project is made in the hope to replicate the Windows 11 desktop
 ## 👷 TODO
 
 - [ ] More working apps
-- [ ] Icons in Settings app (I need help with this)
+- [ ] Better resizing, app maximizing.
 
 ## 🌟 Star this project
 
@@ -51,8 +51,14 @@ This open source project is made in the hope to replicate the Windows 11 desktop
 
 If you believe this project has potential, feel free to **star this repo** just like many [amazing people](https://github.com/yashash-pugalia/win11-svelte/stargazers) have 👇
 
-https://user-images.githubusercontent.com/89068816/200654922-4aac27d9-1084-4c68-91f2-85a2990f1107.mp4
+![](https://raw.githubusercontent.com/yashash-pugalia/win11-svelte/main/out.gif)
 
 ## 🧑‍⚖️ License
 
 The software is published under the [`MIT` License](/LICENSE).
+
+## In News
+
+- [Trending #3 for Svelte on GitHub](https://web.archive.org/web/20220903211909/https://github.com/trending/svelte)
+- [Made with Svelte](https://madewithsvelte.com/win11svelte)
+- [Best of Svelte](https://bestofsvelte.com/p/windows-11-in-svelte)
