@@ -41,7 +41,7 @@ This open source project is made in the hope to replicate the Windows 11 desktop
 ## 👷 TODO
 
 - [ ] More working apps
-- [ ] Better resizing, app maximizing. 
+- [ ] Better resizing, app maximizing.
 
 ## 🌟 Star this project
 
