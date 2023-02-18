@@ -6,13 +6,19 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier --plugin-search-dir=. --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.2",
     "autoprefixer": "^10.4.13",
     "fluent-svelte": "^1.6.0",
+    "husky": "^8.0.3",
     "postcss": "^8.4.20",
+    "prettier": "^2.8.4",
+    "prettier-plugin-svelte": "^2.9.0",
     "sass": "^1.57.1",
     "svelte": "^3.55.0",
     "svelte-preprocess": "^5.0.0",

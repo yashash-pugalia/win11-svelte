@@ -22,7 +22,7 @@
   }}
   transition:scale={{ duration: 200 }}
 >
-  <Titlebar appName="Settings" canGoBack={ true } />
+  <Titlebar appName="Settings" canGoBack={true} />
   <div class="mainApp">
     {#each Object.entries(data) as [i]}
       {#if tab === i}

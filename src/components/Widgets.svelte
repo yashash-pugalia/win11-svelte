@@ -4,7 +4,9 @@
   import { date } from "../store";
 
   const getNews = (async () => {
-    const res = await fetch("https://github.win11react.com/api-cache/news.json");
+    const res = await fetch(
+      "https://github.win11react.com/api-cache/news.json"
+    );
     return await res.json();
   })();
 </script>
