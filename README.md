@@ -36,7 +36,7 @@ This open source project is made in the hope to replicate the Windows 11 desktop
 - Can I contribute?
   - Yeah sure why not! Just open an issue, create a pull request
 - Where did you get the inspiration from, if you have?
-  - Blue edge's [win11React](https://github.com/blueedgetechno/win11React) & this youtube video by [CodeWithHarry](https://youtu.be/OtOmxa9UMe8)
+  - Blue edge's [win11React](https://github.com/blueedgetechno/win11React) & PuruVJ's [macos-web](https://github.com/PuruVJ/macos-web)
 
 ## 👷 TODO
 
