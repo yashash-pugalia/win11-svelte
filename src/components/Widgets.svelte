@@ -3,6 +3,32 @@
   import { fly } from "svelte/transition";
   import { date } from "../store";
 
+  const time_elapsed_toString = (publishTime) => {
+    const etime = (Date.now() - publishTime) / 1000;
+    if (etime < 0) return "-";
+    if (etime < 60) return "الآن";
+
+    const a = {
+      31536000: "year",
+      2592000: "month",
+      86400: "day",
+      3600: "hour",
+      60: "min",
+    };
+
+    let output = "";
+
+    for (const [secs, str] of Object.entries(a).reverse()) {
+      const d = etime / Number(secs);
+      if (d >= 1) {
+        let r = Math.round(d);
+        output = r + " " + (r > 1 ? str + "s" : str) + " ago";
+        break;
+      }
+    }
+    return output;
+  };
+
   const getNews = (async () => {
     const res = await fetch(
       "https://github.win11react.com/api-cache/news.json"
@@ -33,8 +59,7 @@
               <h3>{n.title.split("-").slice(0, -1).join("-")}</h3>
               <p>
                 {n.source.name} &bull;
-                {Math.round((Date.now() - Date.parse(n.publishedAt)) / 3600000)}
-                hours ago
+                {time_elapsed_toString(Date.parse(n.publishedAt))}
               </p>
             </a>
           {/if}{/each}
@@ -52,8 +77,7 @@
           >
             <p>
               {n.source.name} &bull;
-              {Math.round((Date.now() - Date.parse(n.publishedAt)) / 3600000)} hours
-              ago
+              {time_elapsed_toString(Date.parse(n.publishedAt))}
             </p>
             <h3>{n.title.split("-").slice(0, -1).join("-")}</h3>
           </a>
