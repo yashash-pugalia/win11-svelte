@@ -24,7 +24,7 @@ This open source project is made in the hope to replicate the Windows 11 desktop
 ## 📚 Tech Stack
 
 - 🔥 **Svelte** - The most loved web framework.
-- ⚡ **Vite** - Because it is lightning fast
+- ⚡ **Vite** - Because it is lightning fast.
 - 🌊 **CSS + Tailwind** - To make it look beautiful.
 - 🌴 **Fluent Svelte** - Component UI Library that emulates the look and feel of the Fluent Design System.
 - 👌 **Fluent System Icons** - A collection of familiar, friendly and modern icons from Microsoft.
@@ -42,6 +42,8 @@ This open source project is made in the hope to replicate the Windows 11 desktop
 
 - [ ] More working apps
 - [ ] Better resizing, app maximizing.
+- [ ] TypeScript
+- [ ] Multiple tabs support in apps.
 
 ## 🌟 Star this project
 
@@ -51,7 +53,9 @@ This open source project is made in the hope to replicate the Windows 11 desktop
 
 If you believe this project has potential, feel free to **star this repo** just like many [amazing people](https://github.com/yashash-pugalia/win11-svelte/stargazers) have 👇
 
-![](https://raw.githubusercontent.com/yashash-pugalia/win11-svelte/main/out.gif)
+[![Star History Chart](https://api.star-history.com/svg?repos=yashash-pugalia/win11-svelte&type=Date)](https://star-history.com/#yashash-pugalia/win11-svelte&Date)
+
+![Stargazers Video](https://raw.githubusercontent.com/yashash-pugalia/win11-svelte/main/out.gif)
 
 ## 🧑‍⚖️ License
 
@@ -59,6 +63,10 @@ The software is published under the [`MIT` License](/LICENSE).
 
 ## In News
 
+- [Trending #1 on Hacker News](http://web.archive.org/web/20230511060851/https://news.ycombinator.com/)
+- Twitter
+  - [Guillermo Rauch, CEO @vercel](https://twitter.com/rauchg/status/1656493176088150017?s=20)
+  - [Flavio](https://twitter.com/flaviocopes/status/1656550590581751808)
 - [Trending #3 for Svelte on GitHub](https://web.archive.org/web/20220903211909/https://github.com/trending/svelte)
 - [Made with Svelte](https://madewithsvelte.com/win11svelte)
 - [Best of Svelte](https://bestofsvelte.com/p/windows-11-in-svelte)
