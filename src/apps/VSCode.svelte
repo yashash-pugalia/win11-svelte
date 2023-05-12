@@ -16,7 +16,7 @@
   <div class="mainApp">
     <iframe
       title="VS Code"
-      src="https://stackblitz.com/github/yashash-pugalia/win11Svelte?embed=1&file=src/App.svelte"
+      src="https://stackblitz.com/github/yashash-pugalia/win11-svelte?embed=1&file=src/App.svelte"
       frameborder="0"
     />
   </div>

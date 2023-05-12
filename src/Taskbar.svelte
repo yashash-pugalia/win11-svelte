@@ -89,6 +89,21 @@
         <img src="img/icon/{app}.png" alt={app} height="24" width="24" />
       </div>
     {/each}
+    <div
+      class="taskIcon hvrBgLight"
+      on:click={() =>
+        window.open(
+          "https://vercel.com/?utm_source=win11-svelte&utm_campaign=oss",
+          "_blank"
+        )}
+      on:keypress={() =>
+        window.open(
+          "https://vercel.com/?utm_source=win11-svelte&utm_campaign=oss",
+          "_blank"
+        )}
+    >
+      <img src="img/icon/Vercel.png" alt="Vercel" height="24" width="24" />
+    </div>
 
     {#each $openedApps as app}
       {#if !taskApps.includes(app)}

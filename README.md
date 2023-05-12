@@ -61,12 +61,18 @@ If you believe this project has potential, feel free to **star this repo** just 
 
 The software is published under the [`MIT` License](/LICENSE).
 
-## In News
+## Recognitions/ in News
 
 - [Trending #1 on Hacker News](http://web.archive.org/web/20230511060851/https://news.ycombinator.com/)
 - Twitter
-  - [Guillermo Rauch, CEO @vercel](https://twitter.com/rauchg/status/1656493176088150017?s=20)
-  - [Flavio](https://twitter.com/flaviocopes/status/1656550590581751808)
-- [Trending #3 for Svelte on GitHub](https://web.archive.org/web/20220903211909/https://github.com/trending/svelte)
-- [Made with Svelte](https://madewithsvelte.com/win11svelte)
-- [Best of Svelte](https://bestofsvelte.com/p/windows-11-in-svelte)
+  - [Guillermo Rauch, CEO @Vercel](https://twitter.com/rauchg/status/1656493176088150017)
+  - [Rich Harris, Creator @SvelteJS](https://twitter.com/Rich_Harris/status/1657097805733715987)
+  - [Flavio Copes](https://twitter.com/flaviocopes/status/1656550590581751808)
+  - [Bruno Rocha](https://twitter.com/rochacbruno/status/1656641566549614592)
+- Reddit
+  - [r/javascript](https://www.reddit.com/r/javascript/comments/13eo13e/windows_11_in_svelte)
+  - [r/sveltejs](https://www.reddit.com/r/sveltejs/comments/13eneyz/windows_11_in_svelte)
+- [Fastest Growing GitHub Repo on 12th May 2023](https://twitter.com/GithubGrowing/status/1657014847274401792)
+- [Trending #3 for Svelte on GitHub 3rd Sept 2022](https://web.archive.org/web/20220903211909/https://github.com/trending/svelte)
+
+[![Hosted on Vercel](https://images.ctfassets.net/e5382hct74si/78Olo8EZRdUlcDUFQvnzG7/fa4cdb6dc04c40fceac194134788a0e2/1618983297-powered-by-vercel.svg)](https://vercel.com/?utm_source=win11-svelte&utm_campaign=oss)

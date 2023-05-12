@@ -8,15 +8,15 @@ on:
       repoName:
         description: Repo Name
         required: true
-        default: win11Svelte
+        default: win11-svelte
       starCount:
         description: Star Count
         required: true
-        default: 70
+        default: 1024
       duration:
         description: Duration (seconds)
         required: false
-        default: 5
+        default: 7
 name: Render video
 jobs:
   render:
@@ -30,7 +30,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: npm
       - name: Install dependencies (ffmpeg and fonts)
         run: |
