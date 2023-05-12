@@ -6,7 +6,7 @@
   const time_elapsed_toString = (publishTime) => {
     const etime = (Date.now() - publishTime) / 1000;
     if (etime < 0) return "-";
-    if (etime < 60) return "الآن";
+    if (etime < 60) return "now";
 
     const a = {
       31536000: "year",
