@@ -6,12 +6,12 @@
   import Speaker from "./shared/Speaker.svelte";
 
   const items = [
-    { title: "WiFi", active: true },
-    { title: "Bluetooth", active: true },
-    { title: "Flight mode", active: false },
-    { title: "Battery saver", active: false },
-    { title: "Focus assist", active: false },
-    { title: "Accessibility", active: false },
+    { title: "WiFi", active: true, settings: true, icon: "/public/img/icon/ui/wifi.svg"},
+    { title: "Bluetooth", active: true, settings:  true, icon: "/public/img/icon/ui/Bluetooth.svg"},
+    { title: "Flight mode", active: false, settings: false, icon: "/public/img/icon/ui/Flightmode.svg"},
+    { title: "Battery saver", active: false, settings: false, icon: "/public/img/icon/ui/Battery.svg"},
+    { title: "Focus assist", active: false, settings: false, icon: "/public/img/icon/ui/moon.svg"},
+    { title: "Accessibility", active: false, settings: false, icon: "/public/img/icon/ui/Accessibility.svg"},
   ];
 </script>
 
@@ -21,7 +21,7 @@
 >
   <div class="topCont">
     <div class="btnCont">
-      {#each items as { title, active }}
+      {#each items as { title, active, settings, icon }}
         <div class="btn">
           <div
             class="btnIcon"
@@ -29,7 +29,10 @@
             on:click={() => (active = !active)}
             on:keypress={() => (active = !active)}
           >
-            <!-- icon here -->
+          <div class="btnActivate">
+            <img src={icon} alt={title} class:settings>
+          </div>
+          <!-- settings here -->
           </div>
           <div class="btnText">{title}</div>
         </div>
@@ -86,6 +89,9 @@
     background: rgb(var(--bg5));
     height: 3rem;
     border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .btnIcon:hover {
     background: rgb(var(--bg7));
@@ -122,5 +128,9 @@
     align-items: center;
     background: rgb(var(--bg2));
     border-top: solid 1px rgb(var(--clr) / 5%);
+  }
+
+  .btnActivate{
+    display: flex;
   }
 </style>
