@@ -6,12 +6,12 @@
   import Speaker from "./shared/Speaker.svelte";
 
   const items = [
-    { title: "WiFi", active: true, settings: true, icon: "/public/img/icon/ui/wifi.svg"},
-    { title: "Bluetooth", active: true, settings:  true, icon: "/public/img/icon/ui/Bluetooth.svg"},
-    { title: "Flight mode", active: false, settings: false, icon: "/public/img/icon/ui/Flightmode.svg"},
-    { title: "Battery saver", active: false, settings: false, icon: "/public/img/icon/ui/Battery.svg"},
-    { title: "Focus assist", active: false, settings: false, icon: "/public/img/icon/ui/moon.svg"},
-    { title: "Accessibility", active: false, settings: false, icon: "/public/img/icon/ui/Accessibility.svg"},
+    { title: "WiFi", active: true, settings: true, icon: "img/icon/ui/wifi.svg"},
+    { title: "Bluetooth", active: true, settings:  true, icon: "img/icon/ui/Bluetooth.svg"},
+    { title: "Flight mode", active: false, settings: false, icon: "img/icon/ui/Flightmode.svg"},
+    { title: "Battery saver", active: false, settings: false, icon: "img/icon/ui/Battery.svg"},
+    { title: "Focus assist", active: false, settings: false, icon: "img/icon/ui/moon.svg"},
+    { title: "Accessibility", active: false, settings: false, icon: "img/icon/ui/Accessibility.svg"},
   ];
 </script>
 
