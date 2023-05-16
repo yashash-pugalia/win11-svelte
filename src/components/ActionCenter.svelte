@@ -87,8 +87,15 @@
     height: 3rem;
     border-radius: 4px;
   }
+  .btnIcon:hover {
+    background: rgb(var(--bg7));
+  }
   .btnIcon.active {
     background: rgb(var(--clrPrm));
+  }
+
+  .btnIcon.active:hover {
+    background: rgb(var(--clrPrmHov));
   }
 
   .btnText {
