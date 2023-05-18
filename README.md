@@ -1,6 +1,7 @@
 # Windows 11 in Svelte
 
 [![Follow me](https://img.shields.io/github/followers/yashash-pugalia?label=follow%20me&style=social)](https://github.com/yashash-pugalia)
+[![Twitter Follow](https://img.shields.io/twitter/follow/yashash_pugalia?style=social)](https://twitter.com/yashash_pugalia)
 
 This open source project is made in the hope to replicate the Windows 11 desktop experience on web.
 
@@ -38,13 +39,6 @@ This open source project is made in the hope to replicate the Windows 11 desktop
 - Where did you get the inspiration from, if you have?
   - Blue edge's [win11React](https://github.com/blueedgetechno/win11React) & PuruVJ's [macos-web](https://github.com/PuruVJ/macos-web)
 
-## 👷 TODO
-
-- [ ] More working apps
-- [ ] Better resizing, app maximizing.
-- [ ] TypeScript
-- [ ] Multiple tabs support in apps.
-
 ## 🌟 Star this project
 
 ![](https://user-images.githubusercontent.com/89068816/189359296-3d4f0956-4caa-40b2-81a0-f8bb387be725.gif)
@@ -53,9 +47,7 @@ This open source project is made in the hope to replicate the Windows 11 desktop
 
 If you believe this project has potential, feel free to **star this repo** just like many [amazing people](https://github.com/yashash-pugalia/win11-svelte/stargazers) have 👇
 
-[![Star History Chart](https://api.star-history.com/svg?repos=yashash-pugalia/win11-svelte&type=Date)](https://star-history.com/#yashash-pugalia/win11-svelte&Date)
-
-![Stargazers Video](https://raw.githubusercontent.com/yashash-pugalia/win11-svelte/main/out.gif)
+![Stargazers Video](/out.gif)
 
 ## 🧑‍⚖️ License
 
@@ -72,6 +64,7 @@ The software is published under the [`MIT` License](/LICENSE).
 - Reddit
   - [r/javascript](https://www.reddit.com/r/javascript/comments/13eo13e/windows_11_in_svelte)
   - [r/sveltejs](https://www.reddit.com/r/sveltejs/comments/13eneyz/windows_11_in_svelte)
+- [JS Weekly Magazine](https://javascriptweekly.com/issues/638)
 - [Fastest Growing GitHub Repo on 12th May 2023](https://twitter.com/GithubGrowing/status/1657014847274401792)
 - [Trending #3 for Svelte on GitHub 3rd Sept 2022](https://web.archive.org/web/20220903211909/https://github.com/trending/svelte)
 

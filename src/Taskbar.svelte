@@ -104,6 +104,21 @@
     >
       <img src="img/icon/Vercel.png" alt="Vercel" height="24" width="24" />
     </div>
+    <div
+      class="taskIcon hvrBgLight"
+      on:click={() =>
+        window.open(
+          "https://github.com/yashash-pugalia/win11-svelte",
+          "_blank"
+        )}
+      on:keypress={() =>
+        window.open(
+          "https://github.com/yashash-pugalia/win11-svelte",
+          "_blank"
+        )}
+    >
+      <img src="img/icon/Github.png" alt="Github" height="24" width="24" />
+    </div>
 
     {#each $openedApps as app}
       {#if !taskApps.includes(app)}

@@ -46,8 +46,8 @@
     },
     {
       title: "Yashash",
-      image: "https://yashash.vercel.app/favicon.webp",
-      link: "https://yashash.vercel.app",
+      image: "https://yashash.dev/favicon.webp",
+      link: "https://yashash.dev",
     },
   ];
 </script>
