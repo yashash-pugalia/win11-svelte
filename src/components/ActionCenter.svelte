@@ -106,8 +106,14 @@
   .btnIcon.active:hover {
     background: rgb(var(--clrPrmHov));
   }
+
   .btnIcon.active img {
     filter: invert(1);
+  }
+  @media (prefers-color-scheme: dark) {
+    .btnIcon.active img {
+      filter: invert(0);
+    }
   }
 
   .btnText {
