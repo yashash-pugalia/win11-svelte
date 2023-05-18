@@ -6,7 +6,7 @@
   import Speaker from "./shared/Speaker.svelte";
 
   const items = [
-    { title: "WiFi", active: true, settings: true, icon: "img/icon/ui/wifi.svg"},
+    { title: "WiFi", active: true, settings: true, icon: "img/icon/ui/wifi_white.svg"},
     { title: "Bluetooth", active: true, settings:  true, icon: "img/icon/ui/Bluetooth.svg"},
     { title: "Flight mode", active: false, settings: false, icon: "img/icon/ui/Flightmode.svg"},
     { title: "Battery saver", active: false, settings: false, icon: "img/icon/ui/Battery.svg"},
@@ -102,6 +102,10 @@
 
   .btnIcon.active:hover {
     background: rgb(var(--clrPrmHov));
+  }
+
+  .btnIcon.active .btnActivate img {
+    filter: invert(1);
   }
 
   .btnText {
