@@ -93,6 +93,12 @@
     align-items: center;
     justify-content: center;
   }
+
+  .btnIcon img {
+    height: auto;
+    width: 20px;
+  }
+  
   .btnIcon:hover {
     background: rgb(var(--bg7));
   }
