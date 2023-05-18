@@ -6,12 +6,12 @@
   import Speaker from "./shared/Speaker.svelte";
 
   const items = [
-    { title: "WiFi", active: true, settings: true, icon: "img/icon/ui/wifi_white.svg"},
-    { title: "Bluetooth", active: true, settings:  true, icon: "img/icon/ui/Bluetooth.svg"},
-    { title: "Flight mode", active: false, settings: false, icon: "img/icon/ui/Flightmode.svg"},
-    { title: "Battery saver", active: false, settings: false, icon: "img/icon/ui/Battery.svg"},
-    { title: "Focus assist", active: false, settings: false, icon: "img/icon/ui/moon.svg"},
-    { title: "Accessibility", active: false, settings: false, icon: "img/icon/ui/Accessibility.svg"},
+    { title: "WiFi", active: true, icon: "wifi" },
+    { title: "Bluetooth", active: true, icon: "bluetooth" },
+    { title: "Flight mode", active: false, icon: "airplane" },
+    { title: "Battery saver", active: false, icon: "btSaver" },
+    { title: "Focus assist", active: false, icon: "moon" },
+    { title: "Accessibility", active: false, icon: "accessibility" },
   ];
 </script>
 
@@ -21,7 +21,7 @@
 >
   <div class="topCont">
     <div class="btnCont">
-      {#each items as { title, active, settings, icon }}
+      {#each items as { title, active, icon }}
         <div class="btn">
           <div
             class="btnIcon"
@@ -29,10 +29,13 @@
             on:click={() => (active = !active)}
             on:keypress={() => (active = !active)}
           >
-          <div class="btnActivate">
-            <img src={icon} alt={title} class:settings>
-          </div>
-          <!-- settings here -->
+            <img
+              class="icon"
+              src="img/icon/ui/{icon}.svg"
+              height="20"
+              width="20"
+              alt={title}
+            />
           </div>
           <div class="btnText">{title}</div>
         </div>
@@ -94,23 +97,16 @@
     justify-content: center;
   }
 
-  .btnIcon img {
-    height: auto;
-    width: 20px;
-  }
-  
   .btnIcon:hover {
     background: rgb(var(--bg7));
   }
   .btnIcon.active {
     background: rgb(var(--clrPrm));
   }
-
   .btnIcon.active:hover {
     background: rgb(var(--clrPrmHov));
   }
-
-  .btnIcon.active .btnActivate img {
+  .btnIcon.active img {
     filter: invert(1);
   }
 
@@ -138,9 +134,5 @@
     align-items: center;
     background: rgb(var(--bg2));
     border-top: solid 1px rgb(var(--clr) / 5%);
-  }
-
-  .btnActivate{
-    display: flex;
   }
 </style>
