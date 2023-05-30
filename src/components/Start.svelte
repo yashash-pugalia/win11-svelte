@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
   import { Button, MenuFlyout, MenuFlyoutItem, TextBox } from "fluent-svelte";
   import { fly } from "svelte/transition";
-  import { activeThing, appList, openedApps } from "../store";
+  import { activeThing, appList, openedApps } from "$store";
 
   let allApps = false;
 
@@ -14,7 +14,7 @@
     "Terminal",
   ];
 
-  const toggleOpenApp = (app) => {
+  const toggleOpenApp = (app: string) => {
     if ($openedApps.includes(app)) {
       $activeThing = "";
       $openedApps = $openedApps.filter((oa) => oa !== app);

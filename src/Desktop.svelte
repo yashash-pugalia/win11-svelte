@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
   import { draggable } from "@neodrag/svelte";
-  import { activeThing, brightness, openedApps } from "./store";
+  import { activeThing, brightness, openedApps } from "$store";
 
   const dskApps = ["Recycle Bin", "Microsoft Edge", "VS Code"];
 
-  const toggleOpenApp = (app) => {
+  const toggleOpenApp = (app: string) => {
     if ($openedApps.includes(app)) {
       $activeThing = "";
       $openedApps = $openedApps.filter((oa) => oa !== app);
@@ -32,42 +32,42 @@
   <div class="apps">
     {#each $openedApps as e}
       {#if e === "Calculator"}
-        {#await import("./apps/Calculator.svelte") then { default: Calculator }}
+        {#await import("$apps/Calculator.svelte") then { default: Calculator }}
           <Calculator />
         {/await}
       {/if}
       {#if e === "Camera"}
-        {#await import("./apps/Camera.svelte") then { default: Camera }}
+        {#await import("$apps/Camera.svelte") then { default: Camera }}
           <Camera />
         {/await}
       {/if}
       {#if e === "File Explorer"}
-        {#await import("./apps/Explorer.svelte") then { default: Camera }}
+        {#await import("$apps/Explorer.svelte") then { default: Camera }}
           <Camera />
         {/await}
       {/if}
       {#if e === "Microsoft Edge"}
-        {#await import("./apps/Edge.svelte") then { default: Edge }}
+        {#await import("$apps/Edge.svelte") then { default: Edge }}
           <Edge />
         {/await}
       {/if}
       {#if e === "Microsoft Store"}
-        {#await import("./apps/Store.svelte") then { default: Store }}
+        {#await import("$apps/Store.svelte") then { default: Store }}
           <Store />
         {/await}
       {/if}
       {#if e === "Notepad"}
-        {#await import("./apps/Notepad.svelte") then { default: Notepad }}
+        {#await import("$apps/Notepad.svelte") then { default: Notepad }}
           <Notepad />
         {/await}
       {/if}
       {#if e === "Settings"}
-        {#await import("./apps/Settings.svelte") then { default: Settings }}
+        {#await import("$apps/Settings.svelte") then { default: Settings }}
           <Settings />
         {/await}
       {/if}
       {#if e === "VS Code"}
-        {#await import("./apps/VSCode.svelte") then { default: VSCode }}
+        {#await import("$apps/VSCode.svelte") then { default: VSCode }}
           <VSCode />
         {/await}
       {/if}
@@ -75,23 +75,23 @@
   </div>
 
   {#if $activeThing === "ActionCenter"}
-    {#await import("./components/ActionCenter.svelte") then { default: ActionCenter }}
+    {#await import("$components/ActionCenter.svelte") then { default: ActionCenter }}
       <ActionCenter />
     {/await}
   {:else if $activeThing === "Calendar"}
-    {#await import("./components/Calendar.svelte") then { default: Calendar }}
+    {#await import("$components/Calendar.svelte") then { default: Calendar }}
       <Calendar />
     {/await}
   {:else if $activeThing === "Search"}
-    {#await import("./components/Search.svelte") then { default: Search }}
+    {#await import("$components/Search.svelte") then { default: Search }}
       <Search />
     {/await}
   {:else if $activeThing === "Start"}
-    {#await import("./components/Start.svelte") then { default: Start }}
+    {#await import("$components/Start.svelte") then { default: Start }}
       <Start />
     {/await}
   {:else if $activeThing === "Widgets"}
-    {#await import("./components/Widgets.svelte") then { default: Widgets }}
+    {#await import("$components/Widgets.svelte") then { default: Widgets }}
       <Widgets />
     {/await}
   {/if}

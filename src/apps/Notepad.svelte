@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
   import { draggable } from "@neodrag/svelte";
   import { scale } from "svelte/transition";
-  import Titlebar from "../components/shared/Titlebar.svelte";
+  import Titlebar from "$components/shared/Titlebar.svelte";
 
   import {
     MenuBar,
@@ -15,6 +15,12 @@
   class="notepad activeShadow"
   use:draggable={{
     handle: ".title-bar",
+    bounds: {
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+    },
   }}
   transition:scale={{ duration: 200 }}
 >

@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
   import { ProgressRing, TextBox } from "fluent-svelte";
   import { fly } from "svelte/transition";
-  import { date } from "../store";
+  import { date } from "$store";
 
-  const time_elapsed_toString = (publishTime) => {
+  const time_elapsed_toString = (publishTime: number) => {
     const etime = (Date.now() - publishTime) / 1000;
     if (etime < 0) return "-";
     if (etime < 60) return "now";
