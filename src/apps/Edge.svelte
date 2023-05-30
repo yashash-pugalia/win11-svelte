@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
   import { draggable } from "@neodrag/svelte";
   import { IconButton } from "fluent-svelte";
   import { scale } from "svelte/transition";
-  import Titlebar from "../components/shared/Titlebar.svelte";
+  import Titlebar from "$components/shared/Titlebar.svelte";
 
   let value;
   let address = "https://www.google.com/?igu=1";

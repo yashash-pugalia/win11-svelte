@@ -1,5 +1,5 @@
-<script>
-  import { speaker } from "../../store";
+<script lang="ts">
+  import { speaker } from "$store";
 </script>
 
 {#if $speaker > 50}

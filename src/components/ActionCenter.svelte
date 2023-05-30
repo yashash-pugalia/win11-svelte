@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
   import { IconButton, Slider } from "fluent-svelte";
   import { fly } from "svelte/transition";
-  import { brightness, speaker } from "../store";
+  import { brightness, speaker } from "$store";
   import Battery from "./shared/Battery.svelte";
   import Speaker from "./shared/Speaker.svelte";
 

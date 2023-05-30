@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
   import { TextBox } from "fluent-svelte";
   import { fly } from "svelte/transition";
-  import { activeThing, openedApps } from "../store";
+  import { activeThing, openedApps } from "$store";
 
   const topApp = [
     "Settings",
@@ -11,7 +11,7 @@
     "Microsoft Store",
   ];
 
-  const toggleOpenApp = (app) => {
+  const toggleOpenApp = (app: string) => {
     if ($openedApps.includes(app)) {
       $activeThing = "";
       $openedApps = $openedApps.filter((oa) => oa !== app);

@@ -1,11 +1,12 @@
-<script>
-  import Battery from "./components/shared/Battery.svelte";
-  import Speaker from "./components/shared/Speaker.svelte";
-  import { activeThing, date, openedApps } from "./store";
+<script lang="ts">
+  import Battery from "$components/shared/Battery.svelte";
+  import Speaker from "$components/shared/Speaker.svelte";
+  import { activeThing, date, openedApps } from "$store";
 
-  const toggleActiveThing = (e) => ($activeThing = $activeThing === e ? "" : e);
+  const toggleActiveThing = (e: string) =>
+    ($activeThing = $activeThing === e ? "" : e);
 
-  const toggleOpenApp = (app) => {
+  const toggleOpenApp = (app: string) => {
     if ($openedApps.includes(app)) {
       $activeThing = "";
       $openedApps = $openedApps.filter((oa) => oa !== app);

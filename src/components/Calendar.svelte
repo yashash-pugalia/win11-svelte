@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
   import { CalendarView, Button } from "fluent-svelte";
   import { fly } from "svelte/transition";
-  import { date } from "../store";
+  import { date } from "$store";
 
   let collapse = false;
 </script>

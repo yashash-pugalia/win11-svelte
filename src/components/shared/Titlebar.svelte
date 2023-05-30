@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
   // Imports
-  import { activeThing, openedApps } from "../../store";
+  import { activeThing, openedApps } from "$store";
   import { createEventDispatcher } from "svelte";
 
   // Exports

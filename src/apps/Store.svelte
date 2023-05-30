@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
   import { draggable } from "@neodrag/svelte";
   import { scale } from "svelte/transition";
-  import Titlebar from "../components/shared/Titlebar.svelte";
+  import Titlebar from "$components/shared/Titlebar.svelte";
 
   let tab = "Home";
 </script>

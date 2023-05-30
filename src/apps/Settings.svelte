@@ -1,15 +1,15 @@
-<script>
+<script lang="ts">
   import { draggable } from "@neodrag/svelte";
   import { Button, TextBox } from "fluent-svelte";
   import { scale } from "svelte/transition";
-  import Titlebar from "../components/shared/Titlebar.svelte";
-  import { themes } from "../store";
+  import Titlebar from "$components/shared/Titlebar.svelte";
+  import { themes } from "$store";
   import data from "./settingsData.json";
 
   let tab = "System";
   let navOpen = false;
 
-  const setTab = (a) => {
+  const setTab = (a: string) => {
     tab = a;
     navOpen = false;
   };

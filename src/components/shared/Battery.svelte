@@ -1,7 +1,7 @@
-<script>
-  import { battery } from "../../store";
+<script lang="ts">
+  import { battery } from "$store";
 
-  const updateBatteryStatus = (bt) => {
+  const updateBatteryStatus = (bt: any) => {
     $battery = Math.round(bt.level * 100);
     if (bt.charging) {
       $battery = -$battery;
