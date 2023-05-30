@@ -258,7 +258,7 @@
     {
       "type": "tile",
       "name": "Taskbar",
-      "desc": "Taskbar behaviors, system pins",
+      "desc": "Taskbar behaviours, system pins",
       "icon": ""
     },
     {
@@ -270,7 +270,7 @@
     {
       "type": "tile",
       "name": "Device usage",
-      "desc": "Select all the ways you plan to use your device to get personalized tips, ads and recommendations within Microsoft experiences",
+      "desc": "Select all the ways you plan to use your device to get personalised tips, ads and recommendations within Microsoft experiences",
       "icon": ""
     }
   ],
@@ -367,7 +367,7 @@
     {
       "type": "tile",
       "name": "Access work or school",
-      "desc": "Organization resources like email, apps, and network",
+      "desc": "Organisation resources like email, apps, and network",
       "icon": ""
     }
   ],
@@ -738,7 +738,7 @@
     {
       "type": "tile",
       "name": "Advanced options",
-      "desc": "Delivery optimizations, optional updates, active hours, other update settings",
+      "desc": "Delivery optimisations, optional updates, active hours, other update settings",
       "icon": ""
     },
     {
