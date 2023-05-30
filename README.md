@@ -55,7 +55,8 @@ The software is published under the [`MIT` License](/LICENSE).
 
 ## Recognitions/ in News
 
-- [Trending #1 on Hacker News](http://web.archive.org/web/20230511060851/https://news.ycombinator.com/)
+- [Trending #1 on Hacker News](https://web.archive.org/web/20230511060851/https://news.ycombinator.com/)
+- [Nominated for "Fun Side Project of the Year" JS Open Source Awards 2023](https://web.archive.org/web/20230530070526/https://osawards.com/javascript/)
 - Twitter
   - [Guillermo Rauch, CEO @Vercel](https://twitter.com/rauchg/status/1656493176088150017)
   - [Rich Harris, Creator @SvelteJS](https://twitter.com/Rich_Harris/status/1657097805733715987)
@@ -64,7 +65,7 @@ The software is published under the [`MIT` License](/LICENSE).
 - Reddit
   - [r/javascript](https://www.reddit.com/r/javascript/comments/13eo13e/windows_11_in_svelte)
   - [r/sveltejs](https://www.reddit.com/r/sveltejs/comments/13eneyz/windows_11_in_svelte)
-- [JS Weekly Magazine](https://javascriptweekly.com/issues/638)
+- [JS Weekly Newsletter](https://javascriptweekly.com/issues/638)
 - [Fastest Growing GitHub Repo on 12th May 2023](https://twitter.com/GithubGrowing/status/1657014847274401792)
 - [Trending #3 for Svelte on GitHub 3rd Sept 2022](https://web.archive.org/web/20220903211909/https://github.com/trending/svelte)
 
