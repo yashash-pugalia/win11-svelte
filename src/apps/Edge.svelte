@@ -41,7 +41,7 @@
     {
       title: "Gmail",
       image: "https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico",
-      link: "mailto:hi@yashash.dev",
+      link: "mailto:yashash1511@gmail.com",
       external: true,
     },
     {

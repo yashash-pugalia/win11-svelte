@@ -1,6 +1,7 @@
 # Windows 11 in Svelte
 
-[![Follow me](https://img.shields.io/github/followers/yashash-pugalia?label=follow%20me&style=social)](https://github.com/yashash-pugalia)
+[![Follow me on GitHub](https://img.shields.io/github/followers/yashash-pugalia?label=Follow%20Me&style=social)](https://github.com/yashash-pugalia)
+[![Star this Project](https://img.shields.io/github/stars/yashash-pugalia/win11-svelte?label=Star%20This%20Project&style=social)](#start-of-content)
 [![Twitter Follow](https://img.shields.io/twitter/follow/yashash_pugalia?style=social)](https://twitter.com/yashash_pugalia)
 
 This open source project is made in the hope to replicate the Windows 11 desktop experience on web.
@@ -39,23 +40,8 @@ This open source project is made in the hope to replicate the Windows 11 desktop
 - Where did you get the inspiration from, if you have?
   - Blue edge's [win11React](https://github.com/blueedgetechno/win11React) & PuruVJ's [macos-web](https://github.com/PuruVJ/macos-web)
 
-## 🌟 Star this project
-
-![](https://user-images.githubusercontent.com/89068816/189359296-3d4f0956-4caa-40b2-81a0-f8bb387be725.gif)
-
-### [⏫ Scroll to the ⭐️ button](#start-of-content)
-
-If you believe this project has potential, feel free to **star this repo** just like many [amazing people](https://github.com/yashash-pugalia/win11-svelte/stargazers) have 👇
-
-![Stargazers Video](/out.gif)
-
-## 🧑‍⚖️ License
-
-The software is published under the [`MIT` License](/LICENSE).
-
 ## Recognitions/ in News
 
-- [Trending #1 on Hacker News](https://web.archive.org/web/20230511060851/https://news.ycombinator.com/)
 - [Nominated for "Fun Side Project of the Year" JS Open Source Awards 2023](https://web.archive.org/web/20230530070526/https://osawards.com/javascript/)
 - Twitter
   - [Guillermo Rauch, CEO @Vercel](https://twitter.com/rauchg/status/1656493176088150017)
@@ -65,8 +51,14 @@ The software is published under the [`MIT` License](/LICENSE).
 - Reddit
   - [r/javascript](https://www.reddit.com/r/javascript/comments/13eo13e/windows_11_in_svelte)
   - [r/sveltejs](https://www.reddit.com/r/sveltejs/comments/13eneyz/windows_11_in_svelte)
+- [Svelte's Monthly Newsletter](https://svelte.dev/blog/whats-new-in-svelte-june-2023)
 - [JS Weekly Newsletter](https://javascriptweekly.com/issues/638)
+- [Trending #1 on Hacker News](https://web.archive.org/web/20230511060851/https://news.ycombinator.com/)
 - [Fastest Growing GitHub Repo on 12th May 2023](https://twitter.com/GithubGrowing/status/1657014847274401792)
 - [Trending #3 for Svelte on GitHub 3rd Sept 2022](https://web.archive.org/web/20220903211909/https://github.com/trending/svelte)
+
+## 🧑‍⚖️ License
+
+The software is published under the [`MIT` License](/LICENSE).
 
 [![Hosted on Vercel](https://images.ctfassets.net/e5382hct74si/78Olo8EZRdUlcDUFQvnzG7/fa4cdb6dc04c40fceac194134788a0e2/1618983297-powered-by-vercel.svg)](https://vercel.com/?utm_source=win11-svelte&utm_campaign=oss)
