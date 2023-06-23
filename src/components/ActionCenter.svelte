@@ -1,9 +1,10 @@
 <script lang="ts">
   import { IconButton, Slider } from "fluent-svelte";
   import { fly } from "svelte/transition";
-  import { brightness, speaker } from "$store";
+  import { brightness, speaker, activeThing } from "$store";
   import Battery from "./shared/Battery.svelte";
   import Speaker from "./shared/Speaker.svelte";
+  import clickOutside from "$lib/clickOutside";
 
   const items = [
     { title: "WiFi", active: true, icon: "wifi" },
@@ -18,6 +19,7 @@
 <div
   class="actionCenter activeShadow"
   transition:fly={{ y: 450, duration: 200, opacity: 1 }}
+  use:clickOutside={() => ($activeThing = "")}
 >
   <div class="topCont">
     <div class="btnCont">

@@ -2,6 +2,7 @@
   import { Button, MenuFlyout, MenuFlyoutItem, TextBox } from "fluent-svelte";
   import { fly } from "svelte/transition";
   import { activeThing, appList, openedApps } from "$store";
+  import clickOutside from "$lib/clickOutside";
 
   let allApps = false;
 
@@ -28,6 +29,7 @@
 <div
   class="start activeShadow"
   transition:fly={{ y: 700, duration: 200, opacity: 1 }}
+  use:clickOutside={() => ($activeThing = "")}
 >
   <div class="topCont">
     <TextBox
