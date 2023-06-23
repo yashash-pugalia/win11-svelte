@@ -21,7 +21,7 @@
       "$apps/*": ["src/apps/*"],
       "$store": ["src/store.ts"],
       "$components/*": ["src/components/*"],
-      "$lib/*": ["src/lib/*"],
+      "$lib/*": ["src/lib/*"]
     }
   },
   "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
