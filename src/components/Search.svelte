@@ -26,7 +26,10 @@
 <div
   class="search activeShadow"
   transition:fly={{ y: 700, duration: 200, opacity: 1 }}
-  use:clickOutside={() => ($activeThing = "")}
+  use:clickOutside={{
+    callback: () => ($activeThing = ""),
+    exclude: [document.querySelector(".bgLight")],
+  }}
 >
   <TextBox placeholder="Type here to search" autofocus />
 

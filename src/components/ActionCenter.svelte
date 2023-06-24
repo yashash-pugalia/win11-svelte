@@ -19,7 +19,10 @@
 <div
   class="actionCenter activeShadow"
   transition:fly={{ y: 450, duration: 200, opacity: 1 }}
-  use:clickOutside={() => ($activeThing = "")}
+  use:clickOutside={{
+    callback: () => ($activeThing = ""),
+    exclude: [document.querySelector(".bgLight")],
+  }}
 >
   <div class="topCont">
     <div class="btnCont">

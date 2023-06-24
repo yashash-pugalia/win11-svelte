@@ -72,6 +72,7 @@
     </div>
     <div
       class="taskIcon widgetBtn hvrBgLight"
+      class:bgLight={$activeThing === "Widgets"}
       on:click={() => toggleActiveThing("Widgets")}
       on:keypress={() => toggleActiveThing("Widgets")}
     >

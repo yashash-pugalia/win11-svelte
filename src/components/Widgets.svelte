@@ -1,7 +1,8 @@
 <script lang="ts">
   import { ProgressRing, TextBox } from "fluent-svelte";
   import { fly } from "svelte/transition";
-  import { date } from "$store";
+  import { date, activeThing } from "$store";
+  import clickOutside from "$lib/clickOutside";
 
   const time_elapsed_toString = (publishTime: number) => {
     const etime = (Date.now() - publishTime) / 1000;
@@ -37,7 +38,14 @@
   })();
 </script>
 
-<div class="widgets" transition:fly={{ x: -800, duration: 200, opacity: 1 }}>
+<div
+  class="widgets"
+  transition:fly={{ x: -800, duration: 200, opacity: 1 }}
+  use:clickOutside={{
+    callback: () => ($activeThing = ""),
+    exclude: [document.querySelector(".bgLight")],
+  }}
+>
   <div class="time">
     {$date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
   </div>
