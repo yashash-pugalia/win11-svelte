@@ -1,7 +1,8 @@
 <script lang="ts">
   import { CalendarView, Button } from "fluent-svelte";
   import { fly } from "svelte/transition";
-  import { date } from "$store";
+  import { date, activeThing } from "$store";
+  import clickOutside from "$lib/clickOutside";
 
   let collapse = false;
 </script>
@@ -10,6 +11,10 @@
   class="calnpane activeShadow"
   class:collapse
   transition:fly={{ x: 400, duration: 200, opacity: 1 }}
+  use:clickOutside={{
+    callback: () => ($activeThing = ""),
+    exclude: [document.querySelector(".bgLight")],
+  }}
 >
   <div class="topBar">
     <div class="date">

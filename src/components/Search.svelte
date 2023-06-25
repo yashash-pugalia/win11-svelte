@@ -2,6 +2,7 @@
   import { TextBox } from "fluent-svelte";
   import { fly } from "svelte/transition";
   import { activeThing, openedApps } from "$store";
+  import clickOutside from "$lib/clickOutside";
 
   const topApp = [
     "Settings",
@@ -25,6 +26,10 @@
 <div
   class="search activeShadow"
   transition:fly={{ y: 700, duration: 200, opacity: 1 }}
+  use:clickOutside={{
+    callback: () => ($activeThing = ""),
+    exclude: [document.querySelector(".bgLight")],
+  }}
 >
   <TextBox placeholder="Type here to search" autofocus />
 

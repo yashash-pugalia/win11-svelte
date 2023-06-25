@@ -16,6 +16,7 @@ export default defineConfig({
       $store: path.resolve(__dirname, "./src/store"),
       $apps: path.resolve(__dirname, "./src/apps"),
       $components: path.resolve(__dirname, "./src/components"),
+      $lib: path.resolve(__dirname, "./src/lib"),
     },
   },
 });
