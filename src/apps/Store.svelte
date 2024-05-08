@@ -170,7 +170,7 @@
     width: calc(100% + 4rem);
     height: 5rem;
     margin: -3rem -2rem 0;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(1.5rem);
   }
 
   .Home::before {
