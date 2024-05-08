@@ -32,7 +32,7 @@
 
   const getNews = (async () => {
     const res = await fetch(
-      "https://github.win11react.com/api-cache/news.json"
+      "https://win11react.github.io/api-cache/news.json"
     );
     return await res.json();
   })();
