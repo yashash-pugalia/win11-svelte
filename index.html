@@ -1,51 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-7ZFZMMC258"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-7ZFZMMC258"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || []
+            function gtag() {
+                dataLayer.push(arguments)
+            }
+            gtag('js', new Date())
 
-      gtag("config", "G-7ZFZMMC258");
-    </script>
+            gtag('config', 'G-7ZFZMMC258')
+        </script>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="favicon.png" />
-    <!-- HTML Meta Tags -->
-    <title>Windows 11 in Svelte</title>
-    <meta name="description" content="Windows 11 but in the browser 🤯" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="favicon.png" />
+        <!-- HTML Meta Tags -->
+        <title>Windows 11 in Svelte</title>
+        <meta name="description" content="Windows 11 but in the browser 🤯" />
 
-    <!-- Open Graph Tags -->
-    <meta property="og:url" content="https://win11.yashash.dev" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Windows 11 in Svelte" />
-    <meta
-      property="og:description"
-      content="Windows 11 but in the browser 🤯"
-    />
-    <meta property="og:image" content="https://win11.yashash.dev/demo.webp" />
+        <!-- Open Graph Tags -->
+        <meta property="og:url" content="https://win11.yashash.dev" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Windows 11 in Svelte" />
+        <meta
+            property="og:description"
+            content="Windows 11 but in the browser 🤯"
+        />
+        <meta
+            property="og:image"
+            content="https://win11.yashash.dev/demo.webp"
+        />
 
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:domain" content="win11.yashash.dev" />
-    <meta property="twitter:url" content="https://win11.yashash.dev" />
-    <meta name="twitter:title" content="Windows 11 in Svelte" />
-    <meta
-      name="twitter:description"
-      content="Windows 11 but in the browser 🤯"
-    />
-    <meta name="twitter:image" content="https://win11.yashash.dev/demo.webp" />
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="win11.yashash.dev" />
+        <meta property="twitter:url" content="https://win11.yashash.dev" />
+        <meta name="twitter:title" content="Windows 11 in Svelte" />
+        <meta
+            name="twitter:description"
+            content="Windows 11 but in the browser 🤯"
+        />
+        <meta
+            name="twitter:image"
+            content="https://win11.yashash.dev/demo.webp"
+        />
+    </head>
+    <body>
+        <div id="app"></div>
+        <div
+            class="bootscreen"
+            style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 15vh;
+                background-color: #000;
+                transition: opacity 750ms cubic-bezier(0.6, 0, 0.4, 1);
+            "
+        >
+            <img
+                src="img/icon/Start.png"
+                alt="Loading..."
+                style="
+                    width: 150px;
+                    border-radius: 8px;
+                    animation: fadein 1500ms linear,
+                        scalein 1000ms cubic-bezier(0, 0, 0, 1);
+                "
+            />
+            <div class="bsload" style="height: 32px"></div>
+        </div>
+        <style>
+            @keyframes fadein {
+                0% {
+                    opacity: 0;
+                }
+
+                20% {
+                    opacity: 0;
+                }
+
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes scalein {
+                from {
+                    scale: 0;
+                }
+
+                to {
+                    scale: 1;
+                }
+            }
+
+            .bsload circle {
+                stroke: #fff !important;
+            }
+        </style>
+        <script type="module" src="/src/main.ts"></script>
+    </body>
 </html>
