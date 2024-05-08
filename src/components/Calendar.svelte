@@ -46,13 +46,22 @@
     width: 300px;
     max-height: 400px;
     transition: all 200ms;
-    background: rgb(var(--bg2));
+    background: rgb(var(--bg2) / 85%);
     overflow: hidden;
 
-    --fds-solid-background-quarternary: rgb(var(--bg4));
+    backdrop-filter: blur(1.5rem);
+
+    --fds-solid-background-quarternary: rgb(255 255 255 / 25%);
     --fds-layer-on-acrylic-background-default: none;
     --fds-card-stroke-default: none;
   }
+
+  @media (prefers-color-scheme: dark) {
+    .calnpane {
+      --fds-solid-background-quarternary: rgb(255 255 255 / 3.33%);
+    }
+  }
+
   .calnpane.collapse {
     max-height: 50px;
     transition: all 200ms;
