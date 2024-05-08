@@ -79,19 +79,11 @@
     width: 360px;
     border-radius: 8px;
     overflow: hidden;
-    background: rgb(var(--bg2) / 85%);
-    backdrop-filter: blur(1.5rem);
   }
 
   .topCont {
     padding: 20px 20px 0 20px;
-    background: rgb(255 255 255 / 25%);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .topCont {
-      background: rgb(255 255 255 / 3.33%);
-    }
+    background: rgb(var(--bg4));
   }
 
   .btnCont {
@@ -151,6 +143,7 @@
     height: 3rem;
     display: flex;
     align-items: center;
+    background: rgb(var(--bg2));
     border-top: solid 1px rgb(var(--clr) / 5%);
   }
 </style>
