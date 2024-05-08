@@ -138,3 +138,28 @@ body {
     --scroll: 44 44 44;
   }
 }
+
+/* for bootscreen screen */
+.bootscreen .progress-ring circle {
+  stroke: #fff !important;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes scalein {
+  from {
+    scale: 0;
+  }
+  to {
+    scale: 1;
+  }
+}
